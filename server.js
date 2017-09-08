@@ -25,7 +25,7 @@ finally {
 var httpApp = express()
 httpApp.use(function(req, res){
     console.log(req.url)
-    res.redirect('https://thepasswordisdragons.com' + req.url)
+    res.redirect('https://dev.curatingme.com' + req.url)
 })
 
 app.listen(80)
