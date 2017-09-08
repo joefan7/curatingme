@@ -6,6 +6,11 @@ var fs = require('fs')
 
 app.use(express.static('./'))
 
+app.get('/', function(req, res){
+    console.log("we're logging on the server!")
+    res.send("<h1>Welcome to the internet!</h1>")
+})
+
 try {
     var httpsConfig = {
         key  : fs.readFileSync('/etc/letsencrypt/live/dev.curatingme.com/privkey.pem'),
