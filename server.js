@@ -10,6 +10,12 @@ app.get('/', function(req, res){
     res.sendFile('./html/index.html', {root:'./public'})
 })
 
+var httpApp = express()
+httpApp.use(function(req, res){
+    console.log(req.url)
+    res.redirect('https://dev.curatingme.com' + req.url)
+})
+
 try {
     var httpsConfig = {
         key  : fs.readFileSync('/etc/letsencrypt/live/dev.curatingme.com/privkey.pem'),
@@ -32,4 +38,4 @@ httpApp.use(function(req, res){
     res.redirect('https://dev.curatingme.com' + req.url)
 })
 
-app.listen(80)
+httpApp.listen(80)
