@@ -4,11 +4,10 @@ var HTTP = require('http')
 var HTTPS = require('https')
 var fs = require('fs')
 
-app.use(express.static('./'))
+app.use(express.static('./public'))
 
 app.get('/', function(req, res){
-    console.log("we're logging on the server!")
-    res.send("<h1>Welcome to the internet!</h1>")
+    res.sendFile('./html/index.html', {root:'./public'})
 })
 
 try {
