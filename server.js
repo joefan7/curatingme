@@ -15,13 +15,13 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-// ssl
-var httpApp = express()
-httpApp.use(function(req, res){
-    console.log(req.url)
-    res.redirect('https://dev.curatingme.com' + req.url)
+// Client routes
+// home page route
+app.get('/', function(req,res){
+    res.sendFile('./html/index.html', {root: './public'})
 })
 
+// ssl
 try {
     var httpsConfig = {
         key  : fs.readFileSync('/etc/letsencrypt/live/dev.curatingme.com/privkey.pem'),
@@ -45,14 +45,8 @@ httpApp.use(function(req, res){
 })
 /////////////// SSL End ////////////
 
-// Client routes
-// home page route
-app.get('/', function(req,res){
-    res.sendFile('./html/index.html', {root: './public'})
-})
-
 
 // listen on port 80
-  app.listen(80, function () {
+  httpApp.listen(80, function () {
     console.log('Express app listening on port 80');
   });
