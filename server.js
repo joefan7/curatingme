@@ -24,8 +24,10 @@ app.get('/', function(req,res){
 // ssl
 try {
     var httpsConfig = {
-        key  : fs.readFileSync('/etc/letsencrypt/live/dev.curatingme.com/privkey.pem'),
-        cert : fs.readFileSync('/etc/letsencrypt/live/dev.curatingme.com/cert.pem')
+        // key  : fs.readFileSync('/etc/letsencrypt/live/dev.curatingme.com/privkey.pem'),
+        // cert : fs.readFileSync('/etc/letsencrypt/live/dev.curatingme.com/cert.pem')
+        key  : fs.readFileSync('/etc/letsencrypt/live/curatingme.com/privkey.pem'),
+        cert : fs.readFileSync('/etc/letsencrypt/live/curatingme.com/cert.pem')
     }
     var httpsServer = HTTPS.createServer(httpsConfig, app)
     httpsServer.listen(443)
@@ -42,6 +44,7 @@ var httpApp = express()
 httpApp.use(function(req, res){
     console.log(req.url)
     res.redirect('https://curatingme.com' + req.url)
+    // res.redirect('https://dev.curatingme.com' + req.url)
 })
 /////////////// SSL End ////////////
 
