@@ -41,7 +41,7 @@ finally {
 var httpApp = express()
 httpApp.use(function(req, res){
     console.log(req.url)
-    res.redirect('https://dev.curatingme.com' + req.url)
+    res.redirect('https://curatingme.com' + req.url)
 })
 /////////////// SSL End ////////////
 
