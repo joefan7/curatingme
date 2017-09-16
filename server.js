@@ -59,7 +59,7 @@ function loadLogin() {
     
       // exchange tokens
       var token_exchange_url = token_exchange_base_url + '?' + Querystring.stringify(params);
-      Request.get({url: token_exchange_url, json: true}, function(err, resp, respBody) {
+      request.get({url: token_exchange_url, json: true}, function(err, resp, respBody) {
         console.log(respBody);
         var view = {
           user_access_token: respBody.access_token,
@@ -68,7 +68,7 @@ function loadLogin() {
         };
         // get account details at /me endpoint
         var me_endpoint_url = me_endpoint_base_url + '?access_token=' + respBody.access_token;
-        Request.get({url: me_endpoint_url, json:true }, function(err, resp, respBody) {
+        request.get({url: me_endpoint_url, json:true }, function(err, resp, respBody) {
           // send login_success.html
           console.log(respBody);
           if (respBody.phone) {
