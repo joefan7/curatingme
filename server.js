@@ -130,7 +130,7 @@ httpApp.use(function(req, res){
 /////////////// SSL End ////////////
 
 // Use the following for Prod and Dev
-listen on port 80
+//listen on port 80
   httpApp.listen(80, function () {
     console.log('Express app listening on port 80');
   });
