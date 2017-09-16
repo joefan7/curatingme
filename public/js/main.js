@@ -1,3 +1,4 @@
+console.log("MAIN.JS Executing")
 // initialize Account Kit with CSRF protection
 AccountKit_OnInteractive = function(){
     AccountKit.init(
