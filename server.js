@@ -28,7 +28,7 @@ const me_endpoint_base_url = 'https://graph.accountkit.com/v1.0/me';
 const token_exchange_base_url = 'https://graph.accountkit.com/v1.0/access_token'; 
 
 function loadLogin() {
-    return fs.readFileSync('html/login.html').toString();
+    return fs.readFileSync('public/html/login.html').toString();
   }
   
   app.get('/', function(request, response){
@@ -43,7 +43,7 @@ function loadLogin() {
   });
   
   function loadLoginSuccess() {
-    return fs.readFileSync('html/login_success.html').toString();
+    return fs.readFileSync('public/html/login_success.html').toString();
   }
   
   app.post('/sendcode', function(request, response){
