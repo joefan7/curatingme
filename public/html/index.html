@@ -2,38 +2,127 @@
 <html lang="en">
 
 <head>
-    <!-- Vue.js -->
-    <script src="https://unpkg.com/vue"></script>
-    <!-- Bootstrap css -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <!-- Custom CSS -->
+    <!-- vue.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.js"></script>
+    <meta charset="utf-8" />
+    <title>Hackleberry Finn | Calorie and Mood Tracker | Home</title>
+    <!-- mobile ready -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lora|Shrikhand" rel="stylesheet">
+    <!-- custom css -->
     <link rel="stylesheet" href="/css/main.css">
     <!-- jQuery js -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
     <!-- bootstrap js -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CuratingMe.com</title>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <!-- custom js
+    <script src="/js/main.js"></script> -->
 </head>
 
 <body>
-    <ul class="nav navbar-nav navbar-right">
-        <!-- Facebook Login  -->
-        <li>
-            <a id="logout" onclick="logout()">Logout</a>
-        </li>
-        <li>
-            <fb:login-button id="fb-btn" scope="public_profile, email" onlogin="checkLoginState();">
-            </fb:login-button>
-        </li>
-        <!-- Facebook Login  -->
-    </ul>
-    <h1>Hello and welcome to CuratingMe.com Monday September 18, 2017</h1>
+    <div id="app">
+        <!-- begin vue app -->
+        <!-- all vue directives start with 'v-', to make them easier to identify -->
 
-    <!-- Custom JS -->
+        <!-- NAVBAR START -->
+        <nav class="navbar navbar-default">
+            <!-- open navbar -->
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                        aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/"><img src="/favicon.ico"></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/food-data">Food Data</a></li>
+                        <li><a href="/exercise-data">Exercise Data</a></li>
+                        <li><a href="/check-progress">Check Progress</a></li>
+                        <li><a href="/about">About</a></li>
+                        <!-- <li><a href="/contact">Contact</a></li> -->
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- Facebook Login  -->
+                        <li>
+                            <a id="logout" onclick="logout()">Logout</a>
+                        </li>
+                        <li>
+                            <fb:login-button id="fb-btn" scope="public_profile, email" onlogin="checkLoginState();">
+                            </fb:login-button>
+                        </li>
+                        <!-- Facebook Login  -->
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <!-- close navbar -->
+        <!-- NAVBAR END -->
+
+        <div class="container">
+            <h3 id="heading">Log in to view your profile</h3>
+            <div id="profile"></div>
+        </div>
+
+        <!-- WRAP MAIN SECTION IN CONTAINER START -->
+        <div class="container">
+
+            <img src="/images/chicken-plate-v3.jpg" class="img-responsive">
+            <h1>Calorie and Mood Tracker</h1>
+            <h4><em>by Hackleberry Finn...</em></h4>
+            <hr>
+            <p><b>Are you curious about the food you eat and the calories involved? How does the amount of exercise and rest you get affect your mood and caloric intake? With our calorie and mood tracker, you can record the foods you eat and drink, the activities you performed, when you did these things, and the mood you were in.</b>
+            <br><br>First, tell us a few details about yourself.
+            <br><br>Next, enter some data about the items you consumed in a day and/or the activities performed.
+            <br><br>When you want to see your progress, hit the "Check My Progress" button.</p>
+
+            <hr>
+
+            <!-- USER DATA AREA START -->
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- USER DATA INPUT FORM START -->
+                    <div id="user-input-area"></div>
+                    <!-- USER DATA INPUT FORM END -->
+                </div>
+                <div class="col-md-6">
+                    <img src="/images/yoga-sunrise-v2.jpg" class="img-responsive">
+                </div>
+            </div>
+            <!-- USER DATA AREA END -->
+
+            <hr>
+
+        </div>
+        <!-- WRAP MAIN SECTION IN CONTAINER END -->
+
+        <!-- FOOTER START -->
+        <footer class="container-fluid">
+            <p class="text-center"><small><a href="/">Home</a> | <a href="/food-data">Food Data</a> | <a href="/exercise-data">Exercise Data</a> | <a href="/check-progress">Check Progress</a> | <a href="/about">About</a></small></p>
+            <p class="text-center"><small>Copyright &copy; Hackleberry Finn. All rights reserved.</small></p>
+            <br>
+        </footer>
+        <!-- FOOTER END -->
+
+    </div>
+    <!-- end vue app -->
+    <!-- custom js -->
     <script src="/js/main.js"></script>
 </body>
 
