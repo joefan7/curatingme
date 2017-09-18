@@ -23,7 +23,5 @@ window.fbAsyncInit = function () {
 
 function logout() {
     FB.logout(function (response) {
-        buildLoginPrompt();
-        setElements(false);
     });
 }
