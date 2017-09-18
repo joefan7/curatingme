@@ -86,5 +86,7 @@ function setElements(isLoggedIn) {
 // Logout application out of FB
 function logout() {
     FB.logout(function (response) {
+        buildLoginPrompt();
+        setElements(false);
     });
 }
