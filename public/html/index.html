@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <script src="https://sdk.accountkit.com/en_US/sdk.js"></script>
+    <!-- Vue.js -->
+    <script src="https://unpkg.com/vue"></script>
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+    <!-- jQuery js -->
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- bootstrap js -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CuratingMe.com</title>
 </head>
-<body>
-    <h1>Hello and welcome to CuratingMe.com</h1>
 
-    <!-- FaceBook Account Kit start -->
-    <input value="+1" id="country_code" />
-    <input placeholder="phone number" id="phone_number"/>
-    <button onclick="smsLogin();">Login via SMS</button>
-    <div>OR</div>
-    <input placeholder="email" id="email"/>
-    <button onclick="emailLogin();">Login via Email</button>
-    <!-- FaceBook Account Kit end -->
-    
+<body>
+    <ul class="nav navbar-nav navbar-right">
+        <!-- Facebook Login  -->
+        <li>
+            <a id="logout" onclick="logout()">Logout</a>
+        </li>
+        <li>
+            <fb:login-button id="fb-btn" scope="public_profile, email" onlogin="checkLoginState();">
+            </fb:login-button>
+        </li>
+        <!-- Facebook Login  -->
+    </ul>
+    <h1>Hello and welcome to CuratingMe.com Monday September 18, 2017</h1>
+
     <!-- Custom JS -->
     <script src="/js/main.js"></script>
 </body>
+
 </html>
