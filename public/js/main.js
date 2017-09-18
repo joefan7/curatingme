@@ -57,6 +57,13 @@ function testAPI() {
     })
 }
 
+// Build the Login Prompt
+function buildLoginPrompt() {
+    let loginPrompt = `
+    <h2>Please login...</h2>
+  `;
+    document.getElementById('user-input-area').innerHTML = loginPrompt;
+  }
 
 // Check FB Login State
 function checkLoginState() {
