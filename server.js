@@ -55,11 +55,11 @@ app.get('/', function(req,res){
 try {
     var httpsConfig = {
         // --- Dev Box SSL
-        key  : fs.readFileSync('/etc/letsencrypt/live/dev.curatingme.com/privkey.pem'), 
-        cert : fs.readFileSync('/etc/letsencrypt/live/dev.curatingme.com/cert.pem')
+        // key  : fs.readFileSync('/etc/letsencrypt/live/dev.curatingme.com/privkey.pem'), 
+        // cert : fs.readFileSync('/etc/letsencrypt/live/dev.curatingme.com/cert.pem')
         // --- Prod Box SSL
-        // key  : fs.readFileSync('/etc/letsencrypt/live/curatingme.com/privkey.pem'),
-        // cert : fs.readFileSync('/etc/letsencrypt/live/curatingme.com/cert.pem')
+        key  : fs.readFileSync('/etc/letsencrypt/live/curatingme.com/privkey.pem'),
+        cert : fs.readFileSync('/etc/letsencrypt/live/curatingme.com/cert.pem')
     }
     var httpsServer = HTTPS.createServer(httpsConfig, app)
     httpsServer.listen(443)
@@ -76,8 +76,8 @@ var httpApp = express()
 httpApp.use(function(req, res){
     console.log(req.url)
     // res.redirect('http://localhost:8000' + req.url) // local Port
-    // res.redirect('https://curatingme.com' + req.url) // production
-    res.redirect('https://dev.curatingme.com' + req.url) // dev
+    res.redirect('https://curatingme.com' + req.url) // production
+    // res.redirect('https://dev.curatingme.com' + req.url) // dev
 })
 /////////////// SSL End ////////////
 
