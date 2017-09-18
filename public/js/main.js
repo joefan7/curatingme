@@ -1,6 +1,16 @@
-var gUserId = ''
-var gUserName = ''
+var gUserId = '';
+var gUserName = '';
+var gUserEmail = '';
 
+// Get User Information
+var getUserInformation = function (userId) {
+    $.get('/userInformation', { userId: userId }, function (dataFromServer) {
+      console.log("dataFromServer : ", dataFromServer)
+      buildProfileInput(dataFromServer)
+    })
+  }
+
+// FB Login Initialization
 window.fbAsyncInit = function () {
     FB.init({
         appId: '1526244437434268',
@@ -20,11 +30,50 @@ window.fbAsyncInit = function () {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
+// Check status and run appropriate
+function statusChangeCallback(response) {
+    if (response.status === 'connected') {
+        console.log('Logged in and authenticated', response.status);
+        setElements(true);
+        testAPI();
+    } else {
+        console.log('Not authenticated', response.status);
+        buildLoginPrompt();
+        setElements(false);
+    }
+}
+
+// Pull in UserName, UserId and 
+function testAPI() {
+    FB.api('/me?fields=name,email', function (response) {
+        if (response && !response.error) {
+            console.log("RESPONSE", response)
+            gUserName = response.name
+            gUserId = response.id
+            getUserInformation(response.id);
+        }
+    })
+}
+
+
+// Check FB Login State
 function checkLoginState() {
     FB.getLoginStatus(function (response) {
     });
 }
 
+// Toggle visibility of screen elements if logged in
+function setElements(isLoggedIn) {
+    if (isLoggedIn) {
+        document.getElementById('logout').style.display = 'block';
+        document.getElementById('fb-btn').style.display = 'none';
+    } else {
+        document.getElementById('logout').style.display = 'none';
+        document.getElementById('fb-btn').style.display = 'block';
+    }
+}
+
+// Logout application out of FB
 function logout() {
     FB.logout(function (response) {
     });
