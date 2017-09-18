@@ -20,6 +20,7 @@ window.fbAsyncInit = function () {
         version: 'v2.8'
     });
     FB.getLoginStatus(function (response) {
+        statusChangeCallback(response);
     });
     FB.AppEvents.logPageView();
 };
