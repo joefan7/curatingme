@@ -5,10 +5,10 @@ var gUserEmail = '';
 // Get User Information
 var getUserInformation = function (userId) {
     $.get('/userInformation', { userId: userId }, function (dataFromServer) {
-      console.log("dataFromServer : ", dataFromServer)
-      buildProfileInput(dataFromServer)
+        console.log("dataFromServer : ", dataFromServer)
+        buildProfileInput(dataFromServer)
     })
-  }
+}
 
 // FB Login Initialization
 window.fbAsyncInit = function () {
@@ -63,11 +63,12 @@ function buildLoginPrompt() {
     <h2>Please login...</h2>
   `;
     document.getElementById('user-input-area').innerHTML = loginPrompt;
-  }
+}
 
 // Check FB Login State
 function checkLoginState() {
     FB.getLoginStatus(function (response) {
+        statusChangeCallback(response);
     });
 }
 
