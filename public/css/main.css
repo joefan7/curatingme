@@ -1,3 +1,13 @@
 * {
     font-family: 'Roboto', sans-serif;
 }
+
+#logout {
+    display: block;
+    margin-right: 40px;
+}
+
+#fb-btn {
+    margin-top: 15px;
+    margin-right: 40px;
+}
