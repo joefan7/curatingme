@@ -15,10 +15,35 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// API Routes
 
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// Read userInformation Doc
+app.get('/userInformation', function(req, res){
+    db.UserInformationModel.findOne({"userId": req.query.userId},function(err,data){
+        if(err){
+            next(err)}
+        else{
+            res.send(data)
+        }
+    })
+})
 
+// Create userInformation Doc
+app.post('/user_information/create', function(req, res, next){
+    console.log("FROM SERVER", req.body);
+    var newUserInformation = new db.UserInformationModel({
+        userId: req.body.userId,
+        uiName: req.body.uiName,
+        uiEmail: req.body.uiEmail,
+        uiBio: req.body.uiBio
+    })
+    newUserInformation.save(function(err,newUser){
+        if (err) { next(err) }
+        else {
+            res.send(newUser)
+        }
+    })
+})
 
 // Client routes
 // home page route

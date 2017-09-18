@@ -57,6 +57,66 @@ function testAPI() {
     })
 }
 
+function buildProfileInput(dataFromUserCall) {
+    console.log("dataFromUserCall", dataFromUserCall.uiName)
+    // if all data fields in dataFromUserCall are populated create a welcome message with links to activity and food entry pages
+    if (
+      (dataFromUserCall !== "") &&
+      (dataFromUserCall.userId !== "") &&
+      (dataFromUserCall.uiName !== "") &&
+      (dataFromUserCall.uiEmail !== "")
+    ) {
+      let userInputForm = `
+  <h2>Hello ${dataFromUserCall.uiName}</h2>
+  <h3>Here is your profile...</h3>
+  <p>Email : ${dataFromUserCall.uiEmail}</p
+  <p>Bio : ${dataFromUserCall.uiBio}</p>
+  <h3>Options...</h3>
+  <ul>
+   <li><a href="/dashboard">Dashboard</a></li>     
+   <li><a href="/update-profile">Profile Update</a></li>
+   <li><a href="/manage-links">Manage Links</a></li>
+   <li><a href="/manage-lists">Manage Lists</a></li>
+   <li><a href="/about">About</a></li>
+  </ul>
+  `;
+      document.getElementById('user-input-area').innerHTML = userInputForm;
+    } else {
+      console.log("DATA FUC", dataFromUserCall)
+      let userInputForm = `
+  <form id="uiForm">
+  <div class="form-group">
+      <h2>Please tell us a little about yourself ${gUserName}.</h2>
+      <input id="userId" class="form-control hidden" value="${gUserId}">
+      <input id="uiName" class="form-control hidden" value="${gUserName}">
+      <input id="uiEmail" class="form-control hidden" value="${gUserEmail}">
+      <h3>Bio</h3>
+      <input id="uiBio" type="text" class="form-control" placeholder="Short Bio 150 Characters">
+      <button type="submit" id="build" class="form-control btn btn-primary">
+          RECORD MY INFO
+      </button>
+  </div>
+  </form>
+  `;
+      document.getElementById('user-input-area').innerHTML = userInputForm;
+    }
+  }
+  $(document).on('click', '#build', function(evt){
+    evt.preventDefault();
+    // Create User Information Doc
+      $.post('/user_information/create', { 
+        userId: $('#userId').val(),
+        uiName: $('#uiName').val(),
+        uiEmail: $('#uiEmail').val(),
+        uiBio: $('#ui Bio').val()
+    }, function (dataFromServer) {
+        console.log("dataFromServer : ", dataFromServer)
+        buildProfileInput(dataFromServer)
+      })
+    console.log($('#userId').val());
+    console.log("OSKKSD");
+  });
+
 // Build the Login Prompt
 function buildLoginPrompt() {
     let loginPrompt = `
