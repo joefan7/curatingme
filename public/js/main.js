@@ -12,6 +12,7 @@ var getUserInformation = function (userId) {
 
 // FB Login Initialization
 window.fbAsyncInit = function () {
+    console.log("fbAsyncInit");
     FB.init({
         appId: '1526244437434268',
         cookie: true,
