@@ -14,7 +14,7 @@ var getUserInformation = function (userId) {
 window.fbAsyncInit = function () {
     console.log("fbAsyncInit");
     FB.init({
-        appId: '1526244437434268',
+        appId: '954902444648707',
         cookie: true,
         xfbml: true,
         version: 'v2.8'
