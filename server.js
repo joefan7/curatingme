@@ -7,6 +7,9 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var request = require('request');
 
+var db = require('./db')
+app.use(express.static('./public'))
+
 app.use(express.static('./public'))
 
 // parse application/x-www-form-urlencoded
