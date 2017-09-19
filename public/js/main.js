@@ -68,6 +68,7 @@ function buildProfileInput(dataFromUserCall) {
       (dataFromUserCall.uiEmail !== "")
     ) {
       let userInputForm = `
+  <div>
   <h2>Hello ${dataFromUserCall.uiName}</h2>
   <h3>Here is your profile...</h3>
   <p>Email : ${dataFromUserCall.uiEmail}</p
@@ -80,6 +81,7 @@ function buildProfileInput(dataFromUserCall) {
    <li><a href="/manage-lists">Manage Lists</a></li>
    <li><a href="/about">About</a></li>
   </ul>
+  </div>
   `;
       document.getElementById('user-input-area').innerHTML = userInputForm;
     } else {
