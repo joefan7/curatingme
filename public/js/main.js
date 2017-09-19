@@ -109,7 +109,7 @@ function buildProfileInput(dataFromUserCall) {
         userId: $('#userId').val(),
         uiName: $('#uiName').val(),
         uiEmail: $('#uiEmail').val(),
-        uiBio: $('#ui Bio').val()
+        uiBio: $('#uiBio').val()
     }, function (dataFromServer) {
         console.log("dataFromServer : ", dataFromServer)
         buildProfileInput(dataFromServer)
