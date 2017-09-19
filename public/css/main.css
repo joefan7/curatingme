@@ -6,6 +6,23 @@ body {
     background-color: #826A6C
 }
 
+h1, h2, h3, h4 {
+    font-family: 'Shrikhand', cursive;
+    color: #A84322;
+}
+
+h1 {
+    font-size: 3.5em;
+}
+
+img {
+    border-radius: 10px;
+}
+
+a, a:hover {
+    color: #00876A;
+}
+
 #logout {
     display: block;
     margin-right: 40px;
