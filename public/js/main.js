@@ -45,13 +45,14 @@ function statusChangeCallback(response) {
     }
 }
 
-// Pull in UserName, UserId and 
+// Pull in UserName, UserId and Email from FB
 function testAPI() {
     FB.api('/me?fields=name,email', function (response) {
         if (response && !response.error) {
             console.log("RESPONSE", response)
             gUserName = response.name
             gUserId = response.id
+            gUserEmail = response.email
             getUserInformation(response.id);
         }
     })
