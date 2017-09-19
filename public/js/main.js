@@ -122,7 +122,7 @@ function buildProfileInput(dataFromUserCall) {
 function buildLoginPrompt() {
     let loginPrompt = `
     <h1>Welcome to CuratingMe.com</h1>
-    <img src="/images/logo.png" class="img-responsive text-center">
+    <img src="/images/logo.png" class="img-responsive img-center">
   `;
     document.getElementById('user-input-area').innerHTML = loginPrompt;
 }
