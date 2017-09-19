@@ -68,7 +68,7 @@ function buildProfileInput(dataFromUserCall) {
       (dataFromUserCall.uiEmail !== "")
     ) {
       let userInputForm = `
-  <div>
+  <div class="text-left">
   <h2>Hello ${dataFromUserCall.uiName}</h2>
   <h3>Here is your profile...</h3>
   <p>Email : ${dataFromUserCall.uiEmail}</p
