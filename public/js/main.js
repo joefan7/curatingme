@@ -121,7 +121,8 @@ function buildProfileInput(dataFromUserCall) {
 // Build the Login Prompt
 function buildLoginPrompt() {
     let loginPrompt = `
-    <h2>Please login...</h2>
+    <h1>Welcome to CuratingMe.com</h1>
+    <img src="/images/logo.png" class="img-responsive">
   `;
     document.getElementById('user-input-area').innerHTML = loginPrompt;
 }
