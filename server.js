@@ -54,6 +54,16 @@ app.get('/', function(req,res){
     res.sendFile('./html/index.html', {root: './public'})
 })
 
+// instructions page route
+app.get('/instructions', function(req,res){
+    res.sendFile('./html/instructions.html', {root: './public'})
+})
+
+// dashboard page route
+app.get('/dashboard', function(req,res){
+    res.sendFile('./html/dashboard.html', {root: './public'})
+})
+
 // ssl
 try {
     var httpsConfig = {
