@@ -125,12 +125,6 @@ function buildLoginPrompt() {
     let loginPrompt = `
     <h1>Welcome to CuratingMe.com</h1>
     <img src="/images/logo.png" class="img-responsive img-center">
-    <ol class="numeric">
-        <li>Add Links</li>
-        <li>Create Lists</li>
-        <li>Generate Page</li>
-        <li>Copy Page Links</li>      
-    </ol>
   `;
     document.getElementById('user-input-area').innerHTML = loginPrompt;
 }
