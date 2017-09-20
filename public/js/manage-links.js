@@ -1,12 +1,57 @@
 $(document).ready(function () {
     $('.footer-template').load("./html/footer.html");
+    var render = function () {
+        $('#manage-links-list').empty();
+        for (var i = 0; i < linkList.length; i++) {
+            $('#manage-links-list').append(`<li id="${linkList[i]._id}" class="link"><button btn-link-number="${linkList[i]._id}" class="linkButton">Delete</button> ${linkList[i]['linkName']}</li>`);
+        }
+    };
+
+    var getFreshData = function () {
+        $.get('/linkList', { userId: userId }, function (linkData) {
+            linkList = linkData;
+            render();
+        });
+    };
+
+    // collapse nav bar when selection made
+    $('.navbar-nav>li>a').on('click', function () {
+        $('.navbar-collapse').collapse('hide');
+    });
+
+    var gUserId = '';
+    var gUserName = '';
+    var gUserEmail = '';
+    var linkList = [];
+
+    $('body').on('click', '.linkButton', function (event) {
+        event.stopPropagation();
+        event.preventDefault();
+        var btnLinkNumber = $(event.target).attr('btn-link-number');
+        var btnItem = document.getElementById(btnLinkNumber);
+        console.log("Button Clicked", btnLinkNumber, btnItem);
+        $.post('/linkList/delete', $(this).serialize() + '_id=' + btnLinkNumber, function (linkData) {
+            getFreshData();
+        });
+    });
+
+    $('#manage-links-section').on('submit', function (event) {
+        event.preventDefault()
+        console.log("gUserId}:", gUserId);
+        console.log('#manage-links-section this', $(this).serialize());
+        $.post('/linkList', $(this).serialize(), function (linkData) {
+            console.log('#manage-links-section linkData ', linkData);
+            getFreshData();
+        });
+    });
+    // });
     // Get User Information
     var getUserInformation = function (userId) {
         $.get('/userInformation', { userId: userId }, function (dataFromServer) {
             buildProfileInput(dataFromServer);
         });
     };
-    
+
     // FB Login Initialization
     window.fbAsyncInit = function () {
         console.log("fbAsyncInit");
@@ -28,7 +73,7 @@ $(document).ready(function () {
         js.src = "//connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-    
+
     // Check status and run appropriate
     function statusChangeCallback(response) {
         if (response.status === 'connected') {
@@ -52,7 +97,7 @@ $(document).ready(function () {
             }
         })
     }
-    
+
     function buildProfileInput(dataFromUserCall) {
         console.log("dataFromUserCall", dataFromUserCall.uiName)
         // if all data fields in dataFromUserCall are populated create a welcome message with links to activity and food entry pages
@@ -102,20 +147,20 @@ $(document).ready(function () {
         setElements(true);
         setTimeout(location.reload.bind(location), 2000);
     });
-    
+
     // Build the Login Prompt
     function buildLoginPrompt() {
         alert(`${gUserName}, you are now logged out.`);
         location.reload();
     }
-    
+
     // Check FB Login State
-    function checkLoginState () {
+    function checkLoginState() {
         FB.getLoginStatus(function (response) {
             statusChangeCallback(response);
         });
     }
-    
+
     // Toggle visibility of screen elements if logged in
     function setElements(isLoggedIn) {
         if (isLoggedIn) {
@@ -136,7 +181,7 @@ $(document).ready(function () {
             document.getElementById('heading').style.display = 'block';
         }
     }
-    
+
     // Logout application out of FB SWAP POINT
     function logout() {
         FB.logout(function (response) {
@@ -144,52 +189,4 @@ $(document).ready(function () {
             setElements(false);
         });
     }
-
-    var render = function () {
-        $('#manage-links-list').empty();
-        for (var i = 0; i < linkList.length; i++) {
-            $('#manage-links-list').append(`<li id="${linkList[i]._id}" class="link"><button btn-link-number="${linkList[i]._id}" class="linkButton">Delete</button> ${linkList[i]['linkName']}</li>`);
-        }
-    };
-
-    var getFreshData = function () {
-        $.get('/linkList', { userId: userId }, function (linkData) {
-            linkList = linkData;
-            render();
-        });
-    };
-
-    // collapse nav bar when selection made
-    $('.navbar-nav>li>a').on('click', function () {
-        $('.navbar-collapse').collapse('hide');
-    });
-
-    var gUserId = '';
-    var gUserName = '';
-    var gUserEmail = '';
-    var linkList = [];
-
-    $('body').on('click', '.linkButton', function (event) {
-        event.stopPropagation();
-        event.preventDefault();
-        var btnLinkNumber = $(event.target).attr('btn-link-number');
-        var btnItem = document.getElementById(btnLinkNumber);
-        console.log("Button Clicked", btnLinkNumber, btnItem);
-        $.post('/linkList/delete', $(this).serialize() + '_id=' + btnLinkNumber, function (linkData) {
-            getFreshData();
-        });
-    });
-
-    $('#manage-links-section').on('submit', function (event) {
-        event.preventDefault()
-        console.log("gUserId}:", gUserId);
-        console.log('#manage-links-section this', $(this).serialize());
-        $.post('/linkList', $(this).serialize(), function (linkData) {
-            console.log('#manage-links-section linkData ', linkData);
-            getFreshData();
-        });
-    });
-// });
-
-
 });
