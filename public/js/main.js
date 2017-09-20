@@ -67,23 +67,7 @@ function buildProfileInput(dataFromUserCall) {
       (dataFromUserCall.uiName !== "") &&
       (dataFromUserCall.uiEmail !== "")
     ) {
-      let userInputForm = `
-  <div class="conatiner text-left">
-  <h2>Hello ${dataFromUserCall.uiName}</h2>
-  <h3>Here is your profile...</h3>
-  <p>Email : ${dataFromUserCall.uiEmail}</p
-  <p>Bio : ${dataFromUserCall.uiBio}</p>
-  <h3>Options...</h3>
-  <ul>
-   <li><a href="/dashboard">Dashboard</a></li>     
-   <li><a href="/update-profile">Profile Update</a></li>
-   <li><a href="/manage-links">Manage Links</a></li>
-   <li><a href="/manage-lists">Manage Lists</a></li>
-   <li><a href="/about">About</a></li>
-  </ul>
-  </div>
-  `;
-      document.getElementById('user-input-area').innerHTML = userInputForm;
+        $.get('/dashboard', {}
     } else {
       console.log("DATA FUC", dataFromUserCall)
       let userInputForm = `
