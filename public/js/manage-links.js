@@ -19,10 +19,10 @@ $(document).ready(function () {
         $('.navbar-collapse').collapse('hide');
     });
 
-    var gUserId = '';
-    var gUserName = '';
-    var gUserEmail = '';
     var linkList = [];
+    var lUserId = gUserId;
+    var lUserName = gUserName;
+    var lUserEmail = gUserEmail;
 
     $('body').on('click', '.linkButton', function (event) {
         event.stopPropagation();
@@ -36,9 +36,8 @@ $(document).ready(function () {
     });
 
     $('#manage-links-section').on('submit', function (event) {
-        event.stopPropagation();
         event.preventDefault()
-        console.log("{gUserId}:", gUserId);
+        console.log("{lUserId}:", lUserId);
         console.log('#manage-links-section this', $(this).serialize());
         $.post('/linkList', $(this).serialize(), function (linkData) {
             console.log('#manage-links-section linkData ', linkData);
@@ -47,6 +46,9 @@ $(document).ready(function () {
     });
 });
 
+var gUserId = '';
+var gUserName = '';
+var gUserEmail = '';
 // Get User Information
 var getUserInformation = function (userId) {
     $.get('/userInformation', { userId: userId }, function (dataFromServer) {
