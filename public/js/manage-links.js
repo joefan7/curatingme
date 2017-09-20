@@ -25,7 +25,7 @@ $(document).ready(function () {
     var linkList = [];
 
     $('body').on('click', '.linkButton', function (event) {
-        event.stopPropagation();
+        // event.stopPropagation();
         event.preventDefault();
         var btnLinkNumber = $(event.target).attr('btn-link-number');
         var btnItem = document.getElementById(btnLinkNumber);
