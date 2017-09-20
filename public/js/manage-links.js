@@ -10,6 +10,7 @@ $(document).ready(function () {
                 <button btn-link-number="${linkList[i]._id}" class="testButton">Test</button>
                 <button btn-link-number="${linkList[i]._id}" class="linkButton">Delete</button>
                 ${linkList[i]['linkName']}
+                -
                 ${linkList[i]['linkUrl']}
             </li>
             `);
