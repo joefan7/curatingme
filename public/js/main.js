@@ -67,7 +67,15 @@ function buildProfileInput(dataFromUserCall) {
       (dataFromUserCall.uiName !== "") &&
       (dataFromUserCall.uiEmail !== "")
     ) {
-        $.get('/dashboard',{})
+        let userInputForm = `
+        <form id="uiForm">
+        <div class="form-group">
+            <h2>Thank you for logging in, ${gUserName}.</h2>
+            <a href="/instructions">Start Curating</a>
+        </div>
+        </form>
+        `;
+            document.getElementById('user-input-area').innerHTML = userInputForm;
     } else {
       console.log("DATA FUC", dataFromUserCall)
       let userInputForm = `
@@ -102,9 +110,7 @@ function buildProfileInput(dataFromUserCall) {
       <form id="uiForm">
       <div class="form-group">
           <h2>New User Created</h2>
-          <button type="submit" id="instruction" class="form-control btn btn-primary" href="/instructions">
-              Start Curating
-          </button>
+          <a href="/instructions">Start Curating</a>
       </div>
       </form>
       `;
