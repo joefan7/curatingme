@@ -57,7 +57,7 @@ app.get('/linkList', function(req, res, next){
 });
 
 app.post('/linkList', function(req, res, next){   
-    var newLinkLIst = new db.UserLinksModel(req.body);
+    var newLinkList = new db.UserLinksModel(req.body);
     console.log("linkList Post req.body",req.body);
     newLinkList.save(function(err){ 
         if (err){ next(err);}
