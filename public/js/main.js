@@ -77,12 +77,19 @@ function buildProfileInput(dataFromUserCall) {
         (dataFromUserCall.uiEmail !== "")
     ) {
         let userInputForm = `
-        <form id="uiForm">
-        <div class="form-group">
-            <h2>Thank you for logging in, ${gUserName}.</h2>
-            <a href="/instructions">Start Curating</a>
+        <div class="row">
+            <div class="col-md-2">
+                <img src="/images/logo.png" class="img-responsive img-thumbnail">
+            </div>
+            <div class="col-md-10">
+                <form id="uiForm">
+                    <div class="form-group text-left">
+                        <h2>${gUserName}, thank you for logging in.</h2>
+                        <a href="/instructions">Start Curating</a>
+                    </div>
+                </form>
+            </div>
         </div>
-        </form>
         `;
         document.getElementById('user-input-area').innerHTML = userInputForm;
     } else {
