@@ -68,9 +68,7 @@ function buildProfileInput(dataFromUserCall) {
         (dataFromUserCall.uiEmail !== "")
     ) {
         console.log ("BuildProfileInput A")
-        $.get('/dashboard', function(req,res) {
-            res.sendFile('./html/dashboard.html', {root: './public'})
-        })
+        $.get('/dashboard')
     } else {
         // Create User Information Doc
         console.log ("BuildProfileInput B")
@@ -79,9 +77,7 @@ function buildProfileInput(dataFromUserCall) {
             uiName: gUserName,
             uiEmail: gUserEmail
         }, function (dataFromServer) {
-            $.get('/dashboard', function(req,res) {
-                res.sendFile('./html/dashboard.html', {root: './public'})
-            })
+            $.get('/dashboard')
         })
     }
 };
