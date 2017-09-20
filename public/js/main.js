@@ -77,7 +77,7 @@ function buildProfileInput(dataFromUserCall) {
     }, function (dataFromServer) {
         $.get('/dashboard',{})
       })
-  });
+  }å;
 
 // Build the Login Prompt
 function buildLoginPrompt() {
