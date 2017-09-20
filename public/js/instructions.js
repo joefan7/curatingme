@@ -77,7 +77,7 @@ function buildProfileInput(dataFromUserCall) {
         </form>
         `;
         document.getElementById('user-input-area').innerHTML = userInputForm;
-        alert("Thank you ${gUserName}, you are now logged in.");
+        alert(`Thank you ${gUserName}, you are now logged in.`);
     } else {
         console.log("DATA FUC", dataFromUserCall)
         let userInputForm = `
