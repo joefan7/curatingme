@@ -76,13 +76,17 @@
                 </div>
                 <div class="col-md-10">
                     <h2 class="text-left">Manage Links</h2>
-                    <p>`${gUserName}` Add your sites below by entering a Site Name and your personal web address (URL).</p>
+                    <p>Add your sites below by entering a Site Name and your personal web address (URL).</p>
                     <hr>
                     <form id="manage-links-section">
                         <input class="col-md-3" name="link-name" placeholder="Site Name">
                         <input class="col-md-7" name="link-url" placeholder="www.facebook.com/joefan7">
                         <input class="col-md-2" type="submit" value="SUBMIT">
                     </form>
+                    <hr>
+                    <ul id="manage-links-list">
+                        
+                    </ul>
                     <div class="container-fluid">
                         <h3 class="text-center" id="heading">Login to get started
                             <fb:login-button id="fb-btn2" scope="public_profile, email" onlogin="checkLoginState();">
