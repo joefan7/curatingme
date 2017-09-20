@@ -92,28 +92,28 @@ window.fbAsyncInit = function () {
 }(document, 'script', 'facebook-jssdk'));
 
 // Check status and run appropriate
-// function statusChangeCallback(response) {
-//     if (response.status === 'connected') {
-//         console.log('Logged in and authenticated', response.status);
-//         setElements(true);
-//         testAPI();
-//     } else {
-//         console.log('Not authenticated', response.status);
-//         setElements(false);
-//     }
-// }
-// // Pull in UserName, UserId and Email from FB
-// function testAPI() {
-//     FB.api('/me?fields=name,email', function (response) {
-//         if (response && !response.error) {
-//             console.log("RESPONSE", response);
-//             gUserName = response.name;
-//             gUserId = response.id;
-//             gUserEmail = response.email;
-//             getUserInformation(response.id);
-//         }
-//     })
-// }
+function statusChangeCallback(response) {
+    if (response.status === 'connected') {
+        console.log('Logged in and authenticated', response.status);
+        setElements(true);
+        testAPI();
+    } else {
+        console.log('Not authenticated', response.status);
+        setElements(false);
+    }
+}
+// Pull in UserName, UserId and Email from FB
+function testAPI() {
+    FB.api('/me?fields=name,email', function (response) {
+        if (response && !response.error) {
+            console.log("RESPONSE", response);
+            gUserName = response.name;
+            gUserId = response.id;
+            gUserEmail = response.email;
+            getUserInformation(response.id);
+        }
+    })
+}
 
 function buildProfileInput(dataFromUserCall) {
     console.log("dataFromUserCall", dataFromUserCall.uiName)
