@@ -86,7 +86,8 @@ function buildProfileInput(dataFromUserCall) {
                     <div class="form-group text-left">
                         <h2>${gUserName}, thank you for logging in.</h2>
                         <hr>
-                        <p>If this is your first time here, please visit the <a href="/instructions">instructions</a> page</p> 
+                        <p>If this is your first time here, please visit the <a href="/instructions">instructions</a> page.</p>
+                        <p>If you have any issues please don't hesitate to contact us at <a href="mailto:support@curatingme.com">support@curatingme.com</a>.</p> 
                         <hr>
                     </div>
                 </form>
