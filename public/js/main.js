@@ -139,9 +139,6 @@ function buildProfileInput(dataFromUserCall) {
             document.getElementById('nav-dash').style.display = 'block';
             document.getElementById('nav-links').style.display = 'block';
             document.getElementById('nav-lists').style.display = 'block';
-            document.getElementById('foot-dash').style.display = 'block';
-            document.getElementById('foot-links').style.display = 'block';
-            document.getElementById('foot-lists').style.display = 'block';
             document.getElementById('logout').style.display = 'block';
             document.getElementById('fb-btn').style.display = 'none';
             document.getElementById('heading').style.display = 'none';
@@ -149,9 +146,6 @@ function buildProfileInput(dataFromUserCall) {
             document.getElementById('nav-dash').style.display = 'none';
             document.getElementById('nav-links').style.display = 'none';
             document.getElementById('nav-lists').style.display = 'none';
-            document.getElementById('foot-dash').style.display = 'none';
-            document.getElementById('foot-links').style.display = 'none';
-            document.getElementById('foot-lists').style.display = 'none';
             document.getElementById('logout').style.display = 'none';
             document.getElementById('fb-btn').style.display = 'block';
             document.getElementById('heading').style.display = 'block';
