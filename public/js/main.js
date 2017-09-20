@@ -62,56 +62,57 @@ function buildProfileInput(dataFromUserCall) {
     console.log("dataFromUserCall", dataFromUserCall.uiName)
     // if all data fields in dataFromUserCall are populated create a welcome message with links to activity and food entry pages
     if (
-      (dataFromUserCall !== "") &&
-      (dataFromUserCall.userId !== "") &&
-      (dataFromUserCall.uiName !== "") &&
-      (dataFromUserCall.uiEmail !== "")
+        (dataFromUserCall !== "") &&
+        (dataFromUserCall.userId !== "") &&
+        (dataFromUserCall.uiName !== "") &&
+        (dataFromUserCall.uiEmail !== "")
     ) {
-        $.get('/dashboard',{})
+        $.get('/dashboard', {})
     } else {
-    // Create User Information Doc
-      $.post('/user_information/create', { 
-        userId: gUserId,
-        uiName: gUserName,
-        uiEmail: gUserEmail
-    }, function (dataFromServer) {
-        $.get('/dashboard',{})
-      })
-  }å;
+        // Create User Information Doc
+        $.post('/user_information/create', {
+            userId: gUserId,
+            uiName: gUserName,
+            uiEmail: gUserEmail
+        }, function (dataFromServer) {
+            $.get('/dashboard', {})
+        })
+    }
+};
 
-// Build the Login Prompt
-function buildLoginPrompt() {
-    let loginPrompt = `
+    // Build the Login Prompt
+    function buildLoginPrompt() {
+        let loginPrompt = `
     <h1>Welcome to CuratingMe.com</h1>
     <img src="/images/logo.png" class="img-responsive img-center">
   `;
-    document.getElementById('user-input-area').innerHTML = loginPrompt;
-}
-
-// Check FB Login State
-function checkLoginState() {
-    FB.getLoginStatus(function (response) {
-        statusChangeCallback(response);
-    });
-}
-
-// Toggle visibility of screen elements if logged in
-function setElements(isLoggedIn) {
-    if (isLoggedIn) {
-        document.getElementById('logout').style.display = 'block';
-        document.getElementById('fb-btn').style.display = 'none';
-        document.getElementById('heading').style.display = 'none';
-    } else {
-        document.getElementById('logout').style.display = 'none';
-        document.getElementById('fb-btn').style.display = 'block';
-        document.getElementById('heading').style.display = 'block';
+        document.getElementById('user-input-area').innerHTML = loginPrompt;
     }
-}
 
-// Logout application out of FB
-function logout() {
-    FB.logout(function (response) {
-        buildLoginPrompt();
-        setElements(false);
-    });
-}
+    // Check FB Login State
+    function checkLoginState() {
+        FB.getLoginStatus(function (response) {
+            statusChangeCallback(response);
+        });
+    }
+
+    // Toggle visibility of screen elements if logged in
+    function setElements(isLoggedIn) {
+        if (isLoggedIn) {
+            document.getElementById('logout').style.display = 'block';
+            document.getElementById('fb-btn').style.display = 'none';
+            document.getElementById('heading').style.display = 'none';
+        } else {
+            document.getElementById('logout').style.display = 'none';
+            document.getElementById('fb-btn').style.display = 'block';
+            document.getElementById('heading').style.display = 'block';
+        }
+    }
+
+    // Logout application out of FB
+    function logout() {
+        FB.logout(function (response) {
+            buildLoginPrompt();
+            setElements(false);
+        });
+    }
