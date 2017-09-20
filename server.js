@@ -63,6 +63,22 @@ app.get('/dashboard', function(req,res){
     res.sendFile('./html/dashboard.html', {root: './public'})
 })
 
+// manage links page route
+app.get('/manage-links', function(req,res){
+    res.sendFile('./html/manage-links.html', {root: './public'})
+})
+
+
+// manage lists page route
+app.get('/manage-lists', function(req,res){
+    res.sendFile('./html/manage-links.html', {root: './public'})
+})
+
+// about page route
+app.get('/about', function(req,res){
+    res.sendFile('./html/about.html', {root: './public'})
+})
+
 // ssl
 try {
     var httpsConfig = {
