@@ -101,11 +101,9 @@ function buildProfileInput(dataFromUserCall) {
         if (isLoggedIn) {
             document.getElementById('logout').style.display = 'block';
             document.getElementById('fb-btn').style.display = 'none';
-            document.getElementById('heading').style.display = 'none';
         } else {
             document.getElementById('logout').style.display = 'none';
             document.getElementById('fb-btn').style.display = 'block';
-            document.getElementById('heading').style.display = 'block';
         }
     }
 
