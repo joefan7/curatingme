@@ -12,6 +12,13 @@ var gUserId = '';
 var gUserName = '';
 var gUserEmail = '';
 
+// var vm = new Vue({
+//     el:'#app',
+//     data:{
+
+//     }
+// })
+
 // Get User Information
 var getUserInformation = function (userId) {
     $.get('/userInformation', { userId: userId }, function (dataFromServer) {
@@ -131,6 +138,7 @@ function checkLoginState() {
 // Toggle visibility of screen elements if logged in
 function setElements(isLoggedIn) {
     if (isLoggedIn) {
+        document.getElementById('manage-links-section').style.display = 'block';
         document.getElementById('nav-dash').style.display = 'block';
         document.getElementById('nav-links').style.display = 'block';
         document.getElementById('nav-lists').style.display = 'block';
@@ -138,6 +146,7 @@ function setElements(isLoggedIn) {
         document.getElementById('fb-btn').style.display = 'none';
         document.getElementById('heading').style.display = 'none';
     } else {
+        document.getElementById('manage-links-section').style.display = 'none';
         document.getElementById('nav-dash').style.display = 'none';
         document.getElementById('nav-links').style.display = 'none';
         document.getElementById('nav-lists').style.display = 'none';
