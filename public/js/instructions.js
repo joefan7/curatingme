@@ -109,11 +109,11 @@ $(document).on('click', '#build', function (evt) {
       <form id="uiForm">
       <div class="form-group">
           <h2>New User Created</h2>
-          <a href="/instructions">Start Curating</a>
       </div>
       </form>
       `;
     document.getElementById('user-input-area').innerHTML = userInputForm;
+    setTimeout(location.reload.bind(location), 2000);
 });
 
 // Build the Login Prompt
