@@ -1,7 +1,5 @@
 $(document).ready(function () {
     $('.footer-template').load("./html/footer.html");
-    location.reload();
-    
 
     var render = function () {
         $('#manage-links-list').empty();
@@ -47,7 +45,7 @@ $(document).ready(function () {
             getFreshData();
         });
     });
-}); // moved to end of file to bring in User Authentication into $(document).ready
+//}); // moved to end of file to bring in User Authentication into $(document).ready
 
 // Get User Information
 var getUserInformation = function (userId) {
@@ -193,3 +191,4 @@ function logout() {
         setElements(false);
     });
 }
+});
