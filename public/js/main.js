@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('.navtemplate').load("footer.html");
+    $('.navtemplate').load("./html/footer.html");
   });
 
 var gUserId = '';
