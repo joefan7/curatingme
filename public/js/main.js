@@ -1,6 +1,6 @@
-$(document).ready(function(){
+$(document).ready(function () {
     $('.footer-template').load("./html/footer.html");
-  });
+});
 
 var gUserId = '';
 var gUserName = '';
@@ -66,10 +66,10 @@ function buildProfileInput(dataFromUserCall) {
     console.log("dataFromUserCall", dataFromUserCall.uiName)
     // if all data fields in dataFromUserCall are populated create a welcome message with links to activity and food entry pages
     if (
-      (dataFromUserCall !== "") &&
-      (dataFromUserCall.userId !== "") &&
-      (dataFromUserCall.uiName !== "") &&
-      (dataFromUserCall.uiEmail !== "")
+        (dataFromUserCall !== "") &&
+        (dataFromUserCall.userId !== "") &&
+        (dataFromUserCall.uiName !== "") &&
+        (dataFromUserCall.uiEmail !== "")
     ) {
         let userInputForm = `
         <form id="uiForm">
@@ -79,10 +79,10 @@ function buildProfileInput(dataFromUserCall) {
         </div>
         </form>
         `;
-            document.getElementById('user-input-area').innerHTML = userInputForm;
+        document.getElementById('user-input-area').innerHTML = userInputForm;
     } else {
-      console.log("DATA FUC", dataFromUserCall)
-      let userInputForm = `
+        console.log("DATA FUC", dataFromUserCall)
+        let userInputForm = `
   <form id="uiForm">
   <div class="form-group">
       <h2>Thank you for logging in, ${gUserName}.</h2>
@@ -95,13 +95,13 @@ function buildProfileInput(dataFromUserCall) {
   </div>
   </form>
   `;
-      document.getElementById('user-input-area').innerHTML = userInputForm;
+        document.getElementById('user-input-area').innerHTML = userInputForm;
     }
-  }
-  $(document).on('click', '#build', function(evt){
+}
+$(document).on('click', '#build', function (evt) {
     evt.preventDefault();
     // Create User Information Doc
-      $.post('/user_information/create', { 
+    $.post('/user_information/create', {
         userId: $('#userId').val(),
         uiName: $('#uiName').val(),
         uiEmail: $('#uiEmail').val(),
@@ -109,8 +109,8 @@ function buildProfileInput(dataFromUserCall) {
     }, function (dataFromServer) {
         console.log("dataFromServer : ", dataFromServer)
         buildProfileInput(dataFromServer)
-      })
-      let userInputForm = `
+    })
+    let userInputForm = `
       <form id="uiForm">
       <div class="form-group">
           <h2>New User Created</h2>
@@ -118,48 +118,48 @@ function buildProfileInput(dataFromUserCall) {
       </div>
       </form>
       `;
-          document.getElementById('user-input-area').innerHTML = userInputForm;
-  });
+    document.getElementById('user-input-area').innerHTML = userInputForm;
+});
 
-    // Build the Login Prompt
-    function buildLoginPrompt() {
-        let loginPrompt = `
+// Build the Login Prompt
+function buildLoginPrompt() {
+    let loginPrompt = `
     <h1>Welcome to CuratingMe.com</h1>
     <img src="/images/logo.png" class="img-responsive img-center">
   `;
-        document.getElementById('user-input-area').innerHTML = loginPrompt;
-    }
+    document.getElementById('user-input-area').innerHTML = loginPrompt;
+}
 
-    // Check FB Login State
-    function checkLoginState() {
-        FB.getLoginStatus(function (response) {
-            statusChangeCallback(response);
-        });
-    }
+// Check FB Login State
+function checkLoginState() {
+    FB.getLoginStatus(function (response) {
+        statusChangeCallback(response);
+    });
+}
 
-    // Toggle visibility of screen elements if logged in
-    function setElements(isLoggedIn) {
-        if (isLoggedIn) {
-            document.getElementById('nav-dash').style.display = 'block';
-            document.getElementById('nav-links').style.display = 'block';
-            document.getElementById('nav-lists').style.display = 'block';
-            document.getElementById('logout').style.display = 'block';
-            document.getElementById('fb-btn').style.display = 'none';
-            document.getElementById('heading').style.display = 'none';
-        } else {
-            document.getElementById('nav-dash').style.display = 'none';
-            document.getElementById('nav-links').style.display = 'none';
-            document.getElementById('nav-lists').style.display = 'none';
-            document.getElementById('logout').style.display = 'none';
-            document.getElementById('fb-btn').style.display = 'block';
-            document.getElementById('heading').style.display = 'block';
-        }
+// Toggle visibility of screen elements if logged in
+function setElements(isLoggedIn) {
+    if (isLoggedIn) {
+        document.getElementById('nav-dash').style.display = 'block';
+        document.getElementById('nav-links').style.display = 'block';
+        document.getElementById('nav-lists').style.display = 'block';
+        document.getElementById('logout').style.display = 'block';
+        document.getElementById('fb-btn').style.display = 'none';
+        document.getElementById('heading').style.display = 'none';
+    } else {
+        document.getElementById('nav-dash').style.display = 'none';
+        document.getElementById('nav-links').style.display = 'none';
+        document.getElementById('nav-lists').style.display = 'none';
+        document.getElementById('logout').style.display = 'none';
+        document.getElementById('fb-btn').style.display = 'block';
+        document.getElementById('heading').style.display = 'block';
     }
+}
 
-    // Logout application out of FB
-    function logout() {
-        FB.logout(function (response) {
-            buildLoginPrompt();
-            setElements(false);
-        });
-    }
+// Logout application out of FB
+function logout() {
+    FB.logout(function (response) {
+        buildLoginPrompt();
+        setElements(false);
+    });
+}
