@@ -57,6 +57,8 @@ $(document).ready(function () {
             linkName: $('#linkName').val(),
             linkUrl: $('#linkUrl').val()
         });
+        document.getElementById('linkName').value = '';
+        document.getElementById('linkUrl').value = '';
         getFreshData();
     });
 });
