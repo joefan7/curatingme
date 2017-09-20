@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $('.footer-template').load("./html/footer.html");
-    console.log("Session Storage _id:", sessionStorage._id);
+    console.log("Local Storage _id:", localStorage._id);
 
     var render = function () {
         $('#manage-links-list').empty();
@@ -10,7 +10,7 @@ $(document).ready(function () {
     };
 
     var getFreshData = function () {
-        $.get('/linkList', { objId: sessionStorage._id }, function (linkData) {
+        $.get('/linkList', { objId: localStorage._id }, function (linkData) {
             linkList = linkData;
             render();
         });
@@ -38,7 +38,7 @@ $(document).ready(function () {
     $('#manage-links-section').on('submit', function (event) {
         event.preventDefault();
         $.post('/linkList', {
-            objId: sessionStorage._id,
+            objId: localStorage._id,
             linkName: $('#linkName').val(),
             linkUrl: $('#linkUrl').val()
         });

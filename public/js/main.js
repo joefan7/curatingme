@@ -124,7 +124,7 @@ $(document).on('click', '#build', function (evt) {
     }, function (dataFromServer) {
         console.log("dataFromServer : ", dataFromServer)
         console.log("dataFromServer _id: ", dataFromServer._id)
-        sessionStorage._id = dataFromServer._id;
+        localStorage._id = dataFromServer._id;
         buildProfileInput(dataFromServer)
     })
     let userInputForm = `
