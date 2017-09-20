@@ -18,12 +18,19 @@ $(document).ready(function () {
     };
 
     var getFreshData = function () {
-        $.get('/linkList', function (linkData) {
+        $.get('/linkList', $(this).serialize() + 'objId=' + localStorage._id, function (linkData) {
             linkList = linkData;
             render();
         });
     };
 
+    // var getFreshData = function () {
+    //     $.get('/linkList', function (linkData) {
+    //         linkList = linkData;
+    //         render();
+    //     });
+    // };
+    
     // collapse nav bar when selection made
     $('.navbar-nav>li>a').on('click', function () {
         $('.navbar-collapse').collapse('hide');
