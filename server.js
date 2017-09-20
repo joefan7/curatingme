@@ -67,6 +67,19 @@ app.post('/linkList', function(req, res, next){
     });
 });
 
+app.post('/linkList/delete', function(req, res, next){
+    console.log("DELETE req.body: ", req.body)
+    db.UserLinksModel.find({_id: req.body}, function(err, docs){
+        if(err) {next(err)}
+        else {
+            docs[0].remove(function(err){
+                if ( err ) { next(err) }
+            })
+        }
+        res.send({success:'success!'})
+    })
+})
+
 
 // Client routes
 // home page routes
