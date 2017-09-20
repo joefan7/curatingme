@@ -41,6 +41,7 @@ $(document).ready(function () {
             linkName: $('#linkName').val(),
             linkUrl: $('#linkUrl').val()
         });
+        getFreshData();
     });
 });
 
