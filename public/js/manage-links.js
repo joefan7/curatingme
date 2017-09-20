@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('.footer-template').load("./html/footer.html");
 
-    console.log("Session Storage userId:", sessionStorage.userId);
+    console.log("Session Storage _id:", sessionStorage._id);
 
     var render = function () {
         $('#manage-links-list').empty();
@@ -37,7 +37,7 @@ $(document).ready(function () {
 
     $('#manage-links-section').on('submit', function (event) {
         $.post('/linkList', {
-            userId: sessionStorage.userId,
+            objId: sessionStorage._id,
             linkName: $('#linkName').val(),
             linkUrl: $('#linkUrl').val()
         });

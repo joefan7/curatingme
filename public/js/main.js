@@ -69,8 +69,7 @@ function testAPI() {
 }
 // =-=-=-=-=
 function storeUserId() {
-    if(typeof(Storage) !== "undefined") {
-        sessionStorage.userId = gUserId;        
+    if(typeof(Storage) !== "undefined") {   
     } else {
         alert("Sorry, your browser does not support web storage...");
     }
@@ -134,6 +133,7 @@ $(document).on('click', '#build', function (evt) {
     }, function (dataFromServer) {
         console.log("dataFromServer : ", dataFromServer)
         console.log("dataFromServer _id: ", dataFromServer._id)
+        sessionStorage._id = dataFromServer._id;
         buildProfileInput(dataFromServer)
     })
     let userInputForm = `

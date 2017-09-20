@@ -17,7 +17,7 @@ var userInformationSchema = mongoose.Schema({
 })
 
 var userLinksSchema = mongoose.Schema({
-    ObjId: {
+    objId: {
         type: String,
         required: true,
     },
