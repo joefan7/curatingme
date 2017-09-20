@@ -67,7 +67,7 @@ function buildProfileInput(dataFromUserCall) {
       (dataFromUserCall.uiName !== "") &&
       (dataFromUserCall.uiEmail !== "")
     ) {
-        $.get('/dashboard', {}
+        $.get('/dashboard',{})
     } else {
       console.log("DATA FUC", dataFromUserCall)
       let userInputForm = `
