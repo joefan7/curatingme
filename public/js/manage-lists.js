@@ -3,11 +3,11 @@ $(document).ready(function () {
     console.log("Local Storage _id:", localStorage._id);
 
     var renderLinks = function () {
-        $('#manage-lists-list').empty();
-        for (var i = 0; i < listList.length; i++) {
-            $('#manage-lists-list').append
+        $('#links-list').empty();
+        for (var i = 0; i < linkList.length; i++) {
+            $('#links-list').append
             (`
-            <li class="list-group-item list" id="${listList[i]._id}" value="${listList[i]._id}">"${listList[i].linkName} - ${listList[i].linkUrl}"</li>
+            <li class="list-group-item list" id="${linkList[i]._id}" value="${linkList[i]._id}">"${listList[i].linkName} - ${listList[i].linkUrl}"</li>
             `);
         }
     };
@@ -15,7 +15,7 @@ $(document).ready(function () {
     // <button btn-link-number="${linkList[i]._id}" class="testButton">Test</button>
 
     var getFreshData = function () {
-        $.get('/listList', function (listData) {
+        $.get('/list/linkList', function (listData) {
             listList = listData;
             renderLinks();
         });
@@ -26,6 +26,7 @@ $(document).ready(function () {
         $('.navbar-collapse').collapse('hide');
     });
 
+    var linkList = [];
     var listList = [];
     getFreshData();
 

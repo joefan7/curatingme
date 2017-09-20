@@ -81,11 +81,12 @@ app.post('/linkList/delete', function(req, res, next){
 })
 
 //=-=-=-= Manage Lists =-=-=-=
-app.get('/listList', function(req, res, next){
-    db.UserListsModel.find({}, function(err, listData){
+// get list of links from UserLinksModel
+app.get('/list/linkList', function(req, res, next){
+    db.UserLinksModel.find({}, function(err, linkData){
         if ( err ) { next(err);}
         else {
-            res.send(listData); 
+            res.send(linkData); 
         }
     });
 });
