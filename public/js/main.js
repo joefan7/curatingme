@@ -14,8 +14,9 @@ var gUserEmail = '';
 // Get User Information
 var getUserInformation = function (userId) {
     $.get('/userInformation', { userId: userId }, function (dataFromServer) {
-        console.log("dataFromServer : ", dataFromServer)
-        buildProfileInput(dataFromServer)
+        console.log("dataFromServer : ", dataFromServer);
+        localStorage._id = dataFromServer._id;
+        buildProfileInput(dataFromServer);
     })
 }
 
@@ -122,10 +123,8 @@ $(document).on('click', '#build', function (evt) {
         uiEmail: $('#uiEmail').val(),
         uiBio: $('#uiBio').val()
     }, function (dataFromServer) {
-        console.log("dataFromServer : ", dataFromServer)
-        console.log("dataFromServer _id: ", dataFromServer._id)
         localStorage._id = dataFromServer._id;
-        buildProfileInput(dataFromServer)
+        buildProfileInput(dataFromServer);
     })
     let userInputForm = `
       <form id="uiForm">

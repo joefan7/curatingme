@@ -15,8 +15,9 @@ var gUserEmail = '';
 // Get User Information
 var getUserInformation = function (userId) {
     $.get('/userInformation', { userId: userId }, function (dataFromServer) {
-        console.log("dataFromServer : ", dataFromServer)
-        buildProfileInput(dataFromServer)
+        console.log("dataFromServer : ", dataFromServer);
+        localStorage._id = dataFromServer._id;
+        buildProfileInput(dataFromServer);
     })
 }
 
