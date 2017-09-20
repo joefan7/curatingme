@@ -139,7 +139,7 @@ function checkLoginState() {
 function setElements(isLoggedIn) {
     if (isLoggedIn) {
         document.getElementById('manage-links-section').style.display = 'block';
-        document.getElementById('manage-links-warning').style.display = 'none';
+        // document.getElementById('manage-links-warning').style.display = 'none';
         document.getElementById('nav-dash').style.display = 'block';
         document.getElementById('nav-links').style.display = 'block';
         document.getElementById('nav-lists').style.display = 'block';
@@ -148,7 +148,7 @@ function setElements(isLoggedIn) {
         document.getElementById('heading').style.display = 'none';
     } else {
         document.getElementById('manage-links-section').style.display = 'none';
-        document.getElementById('manage-links-warning').style.display = 'block';
+        // document.getElementById('manage-links-warning').style.display = 'block';
         document.getElementById('nav-dash').style.display = 'none';
         document.getElementById('nav-links').style.display = 'none';
         document.getElementById('nav-lists').style.display = 'none';
