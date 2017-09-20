@@ -1,3 +1,7 @@
+$(document).ready(function(){
+    $('.navtemplate').load("footer.html");
+  });
+
 var gUserId = '';
 var gUserName = '';
 var gUserEmail = '';
