@@ -85,7 +85,8 @@ function buildProfileInput(dataFromUserCall) {
                 <form id="uiForm">
                     <div class="form-group text-left">
                         <h2>${gUserName}, thank you for logging in.</h2>
-                        <a href="/instructions">Start Curating</a>
+                        <p>If this is your first time here, please visit the <a href="/instructions">instructions</a> page</p> 
+                        
                     </div>
                 </form>
             </div>
