@@ -62,10 +62,20 @@ function testAPI() {
             gUserName = response.name
             gUserId = response.id
             gUserEmail = response.email
+            storeUserId();
             getUserInformation(response.id);
         }
     })
 }
+// =-=-=-=-=
+function storeUserId() {
+    if(typeof(Storage) !== "undefined") {
+        sessionStorage.userId = gUserId;        
+    } else {
+        alert("Sorry, your browser does not support web storage...");
+    }
+}
+// =-=-=-=-=
 
 function buildProfileInput(dataFromUserCall) {
     console.log("dataFromUserCall", dataFromUserCall.uiName)

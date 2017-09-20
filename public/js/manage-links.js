@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('.footer-template').load("./html/footer.html");
 
-    $.get('/userInformation', )
+    console.log("Session Storage userId:", sessionStorage.userId);
 
     var render = function () {
         $('#manage-links-list').empty();
