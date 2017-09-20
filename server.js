@@ -48,7 +48,7 @@ app.post('/user_information/create', function(req, res, next){
 
 //=-=-=-= Manage Links =-=-=-=
 app.get('/linkList', function(req, res, next){
-    db.UserLinksModel.find({}, function(err, linkData){
+    db.UserLinksModel.find({objId: req.body}, function(err, linkData){
         if ( err ) { next(err);}
         else {
             res.send(linkData); 
