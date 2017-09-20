@@ -98,8 +98,17 @@ function buildProfileInput(dataFromUserCall) {
         console.log("dataFromServer : ", dataFromServer)
         buildProfileInput(dataFromServer)
       })
-    console.log($('#userId').val());
-    console.log("OSKKSD");
+      let userInputForm = `
+      <form id="uiForm">
+      <div class="form-group">
+          <h2>New User Created</h2>
+          <button type="submit" id="instruction" class="form-control btn btn-primary" href="/instructions">
+              Start Curating
+          </button>
+      </div>
+      </form>
+      `;
+          document.getElementById('user-input-area').innerHTML = userInputForm;
   });
 
     // Build the Login Prompt
