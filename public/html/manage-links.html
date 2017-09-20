@@ -77,12 +77,11 @@
                 <div class="col-md-10">
                     <h2 class="text-left">Manage Links</h2>
                     <hr>
-                    <ul id="manage-links-section">
-                        <li>Step 1 - Enter your links in the <a href="/manage-links">Manage Links</a> section.</li>
-                        <li>Step 2 - Create a list of selected links in the <a href="/manage-lists">Manage Lists</a> section.</li>
-                        <li>Step 3 - View lists in your <a href="/dashboard">Dashboard</a>.</li>
-                        <li>Step 4 - Text, email, post, your lists using the links provided.</li>
-                    </ul>
+                    <form id="manage-links-section">
+                        <input name="link-name" placeholder="Site Name">
+                        <input name="link-url" placeholder="www.facebook.com/joefan7">
+                        <input type="submit" value="SUBMIT">
+                    </form>
                     <div class="container-fluid">
                         <h3 class="text-center" id="heading">Login to get started
                             <fb:login-button id="fb-btn2" scope="public_profile, email" onlogin="checkLoginState();">

@@ -71,7 +71,7 @@ app.get('/manage-links', function(req,res){
 
 // manage lists page route
 app.get('/manage-lists', function(req,res){
-    res.sendFile('./html/manage-links.html', {root: './public'})
+    res.sendFile('./html/manage-lists.html', {root: './public'})
 })
 
 // about page route
