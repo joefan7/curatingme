@@ -79,8 +79,9 @@
                     <p>Add your sites below by entering a Site Name and your personal web address (URL).</p>
                     <hr>
                     <form id="manage-links-section">
-                        <input class="col-md-3" name="link-name" placeholder="Site Name">
-                        <input class="col-md-7" name="link-url" placeholder="www.facebook.com/joefan7">
+                        <input id="userId" class="form-control hidden" value="${gUserId}">
+                        <input class="col-md-3" name="linkName" placeholder="Site Name">
+                        <input class="col-md-7" name="linkUrl" placeholder="www.facebook.com/username">
                         <input class="col-md-2" type="submit" value="SUBMIT">
                     </form>
                     <hr>

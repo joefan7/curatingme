@@ -1,31 +1,57 @@
-$(document).ready(function () {
-    $('.footer-template').load("./html/footer.html");
-});
-
-// collapse nav bar when selection made
-$('.navbar-nav>li>a').on('click', function(){
-    $('.navbar-collapse').collapse('hide');
-});
-
-
 var gUserId = '';
 var gUserName = '';
 var gUserEmail = '';
+$(document).ready(function () {
+    $('.footer-template').load("./html/footer.html");
 
-// var vm = new Vue({
-//     el:'#app',
-//     data:{
+    var render = function () {
+        $('#manage-links-list').empty();
+        for (var i = 0; i < linkList.length; i++) {
+            $('#manage-links-list').append(`<li id="${linkList[i]._id}" class="link"><button btn-link-number="${linkList[i]._id}" class="linkButton">Delete</button> ${linkList[i]['linkName']}</li>`);
+        }
+    };
 
-//     }
-// })
+    var getFreshData = function () {
+        $.get('/linkList', { userId: userId }, function (linkData) {
+            linkList = linkData;
+            render();
+        });
+    };
+
+    // collapse nav bar when selection made
+    $('.navbar-nav>li>a').on('click', function () {
+        $('.navbar-collapse').collapse('hide');
+    });
+
+    var linkList = [];
+
+    $('body').on('click', '.linkButton', function (event) {
+        event.stopPropagation();
+        event.preventDefault();
+        var btnLinkNumber = $(event.target).attr('btn-link-number');
+        var btnItem = document.getElementById(btnLinkNumber);
+        console.log("Button Clicked", btnLinkNumber, btnItem);
+        $.post('/linkList/delete', $(this).serialize() + '_id=' + btnLinkNumber, function (linkData) {
+            getFreshData();
+        });
+    });
+
+    $('#manage-links-section').on('submit', function (event) {
+        event.preventDefault()
+        console.log('#manage-links-section this', $(this).serialize());
+        $.post('/linkList', $(this).serialize(), function (linkData) {
+            console.log('#manage-links-section linkData ', linkData);
+            getFreshData();
+        });
+    });
+});
 
 // Get User Information
 var getUserInformation = function (userId) {
     $.get('/userInformation', { userId: userId }, function (dataFromServer) {
-        console.log("dataFromServer : ", dataFromServer)
-        buildProfileInput(dataFromServer)
-    })
-}
+        buildProfileInput(dataFromServer);
+    });
+};
 
 // FB Login Initialization
 window.fbAsyncInit = function () {
@@ -64,10 +90,10 @@ function statusChangeCallback(response) {
 function testAPI() {
     FB.api('/me?fields=name,email', function (response) {
         if (response && !response.error) {
-            console.log("RESPONSE", response)
-            gUserName = response.name
-            gUserId = response.id
-            gUserEmail = response.email
+            console.log("RESPONSE", response);
+            gUserName = response.name;
+            gUserId = response.id;
+            gUserEmail = response.email;
             getUserInformation(response.id);
         }
     })
@@ -106,11 +132,10 @@ $(document).on('click', '#build', function (evt) {
     $.post('/user_information/create', {
         userId: $('#userId').val(),
         uiName: $('#uiName').val(),
-        uiEmail: $('#uiEmail').val(),
-        uiBio: $('#uiBio').val()
+        uiEmail: $('#uiEmail').val()
     }, function (dataFromServer) {
         console.log("dataFromServer : ", dataFromServer)
-        buildProfileInput(dataFromServer)
+        buildProfileInput(dataFromServer);
     })
     let userInputForm = `
       <form id="uiForm">
@@ -141,7 +166,6 @@ function checkLoginState() {
 function setElements(isLoggedIn) {
     if (isLoggedIn) {
         document.getElementById('manage-links-section').style.display = 'block';
-        // document.getElementById('manage-links-warning').style.display = 'none';
         document.getElementById('nav-dash').style.display = 'block';
         document.getElementById('nav-links').style.display = 'block';
         document.getElementById('nav-lists').style.display = 'block';
@@ -150,7 +174,6 @@ function setElements(isLoggedIn) {
         document.getElementById('heading').style.display = 'none';
     } else {
         document.getElementById('manage-links-section').style.display = 'none';
-        // document.getElementById('manage-links-warning').style.display = 'block';
         document.getElementById('nav-dash').style.display = 'none';
         document.getElementById('nav-links').style.display = 'none';
         document.getElementById('nav-lists').style.display = 'none';

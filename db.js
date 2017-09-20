@@ -13,14 +13,28 @@ var userInformationSchema = mongoose.Schema({
     uiEmail: {
         type: String,
         unique: true,
+    }
+})
+
+var userLinksSchema = mongoose.Schema({
+    userId: {
+        type: Number,
+        required: true,
+        unique: true,
     },
-    uiBio: {
+    linkName: {
+        type: String,
+    },
+    linkUrl: {
         type: String,
     }
-    })
+})
+
 
 var UserInformationModel = mongoose.model('userInformation', userInformationSchema, 'userInformation')
+var UserLinksModel = mongoose.model('userLinks', userLinksSchema, 'userLinks')
 
 module.exports = {
     UserInformationModel: UserInformationModel,
+    UserLinksModel: UserLinksModel
 }

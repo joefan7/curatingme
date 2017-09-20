@@ -7,48 +7,69 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var request = require('request');
 
-var db = require('./db')
-app.use(express.static('./public'))
+var db = require('./db');
+app.use(express.static('./public'));
 
-app.use(express.static('./public'))
+app.use(express.static('./public'));
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 // API Routes
-
+//=-=-=-= User Information =-=-=-=
 // Read userInformation Doc
 app.get('/userInformation', function(req, res){
     db.UserInformationModel.findOne({"userId": req.query.userId},function(err,data){
         if(err){
-            next(err)}
-        else{
-            res.send(data)
+            next(err);}
+        else {
+            res.send(data);
         }
-    })
-})
+    });
+});
 
 // Create userInformation Doc
 app.post('/user_information/create', function(req, res, next){
-    console.log("FROM SERVER", req.body);
     var newUserInformation = new db.UserInformationModel({
         userId: req.body.userId,
         uiName: req.body.uiName,
         uiEmail: req.body.uiEmail
-    })
+    });
     newUserInformation.save(function(err,newUser){
-        if (err) { next(err) }
+        if (err) { next(err);}
         else {
-            res.send(newUser)
+            res.send(newUser);
         }
-    })
-})
+    });
+});
+
+//=-=-=-= Manage Links =-=-=-=
+app.get('/linkList', function(req, res, next){
+    db.UserLinksModel.find({}, function(err, linkData){
+        if ( err ) { next(err);}
+        else {
+            res.send(linkData); 
+        }
+    });
+});
+
+app.post('/linkList', function(req, res, next){   
+    var newLinkLIst = new db.UserLinksModel(req.body);
+    console.log("linkList Post req.body",req.body);
+    newLinkList.save(function(err){ 
+        if (err){ next(err);}
+        else {
+            res.send({success:'success!'});
+        }
+    });
+});
+
 
 // Client routes
-// home page route
+// home page routes
 app.get('/', function(req,res){
     res.sendFile('./html/index.html', {root: './public'})
 })

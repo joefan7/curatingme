@@ -44,7 +44,10 @@ a, a:hover {
     border: none;
 }
 
-/* #fb-btn2 {
-    margin-top: 15px;
-    margin-right: 40px;
-} */
+.linkButton {
+    margin-right: 5px;
+}
+
+.hidden {
+    display: none;
+}
