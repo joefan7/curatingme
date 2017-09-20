@@ -84,7 +84,6 @@ function buildProfileInput(dataFromUserCall) {
     ) {
     } else {
         setElements(false);
-        // location.reload();
         let userInputForm = `
   <form id="uiForm">
   <div class="form-group">
@@ -127,6 +126,7 @@ $(document).on('click', '#build', function (evt) {
 // Build the Login Prompt
 function buildLoginPrompt() {
     alert(`${gUserName}, you are now logged out.`);
+    location.reload();
 }
 
 // Check FB Login State
