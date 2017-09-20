@@ -53,18 +53,23 @@
                         <li><a id="nav-links" href="/manage-links">Manage Links</a></li>
                         <li><a id="nav-lists" href="/manage-lists">Manage Lists</a></li>
                         <li><a href="/about">About</a></li>
+                        <li><a id="logout" onclick="logout()">Logout</a></li>
+                        <li>
+                                <fb:login-button id="fb-btn" scope="public_profile, email" onlogin="checkLoginState();">
+                                </fb:login-button>
+                            </li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
+                    <!-- <ul class="nav navbar-nav navbar-right"> -->
                         <!-- Facebook Login  -->
-                        <li>
+                        <!-- <li>
                             <a id="logout" onclick="logout()">Logout</a>
-                        </li>
-                        <li>
+                        </li> -->
+                        <!-- <li>
                             <fb:login-button id="fb-btn" scope="public_profile, email" onlogin="checkLoginState();">
                             </fb:login-button>
-                        </li>
+                        </li> -->
                         <!-- Facebook Login  -->
-                    </ul>
+                    <!-- </ul> -->
                 </div>
                 <!-- /.navbar-collapse -->
             </div>
