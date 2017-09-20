@@ -58,8 +58,8 @@ $(document).ready(function () {
             linkName: $('#linkName').val(),
             linkUrl: $('#linkUrl').val()
         });
-        document.getElementById('linkName').value = '';
         document.getElementById('linkUrl').value = '';
+        document.getElementById('linkName').value = '';
         getFreshData();
     });
 });
