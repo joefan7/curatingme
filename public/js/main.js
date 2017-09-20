@@ -2,6 +2,11 @@ $(document).ready(function () {
     $('.footer-template').load("./html/footer.html");
 });
 
+// collapse nav bar when selection made
+$('.navbar-nav>li>a').on('click', function(){
+    $('.navbar-collapse').collapse('hide');
+});
+
 var gUserId = '';
 var gUserName = '';
 var gUserEmail = '';
