@@ -157,7 +157,7 @@ function buildLoginPrompt() {
 }
 
 // Check FB Login State
-function checkLoginState() {
+var checkLoginState = function () {
     FB.getLoginStatus(function (response) {
         statusChangeCallback(response);
     });
