@@ -7,8 +7,6 @@ $(document).ready(function () {
         for (var i = 0; i < linkList.length; i++) {
             $('#manage-links-list').append(`
             <li id="${linkList[i]._id}" class="link">
-                <input type=button onClick='location.href="${linkList[i]['linkUrl']"' value='Test'>
-                // <button btn-link-number="${linkList[i]._id}" class="testButton">Test</button>
                 <button btn-link-number="${linkList[i]._id}" class="linkButton">Delete</button>
                 ${linkList[i]['linkName']}
                 -
@@ -17,6 +15,8 @@ $(document).ready(function () {
             `);
         }
     };
+    
+    // <button btn-link-number="${linkList[i]._id}" class="testButton">Test</button>
 
     // var getFreshData = function () {
     //     $.get('/linkList', $(this).serialize() + 'objId=' + localStorage._id, function (linkData) {
