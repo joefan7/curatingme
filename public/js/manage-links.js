@@ -155,7 +155,7 @@ $(document).on('click', '#build', function (evt) {
 // Build the Login Prompt
 function buildLoginPrompt() {
     alert(`${gUserName}, you are now logged out.`);
-    location.reload();
+    location.reload('/');
 }
 
 // Check FB Login State
