@@ -69,26 +69,26 @@ var getUserInformation = function (userId) {
 };
 
 // FB Login Initialization
-// window.fbAsyncInit = function () {
-//     console.log("fbAsyncInit");
-//     FB.init({
-//         appId: '954902444648707',
-//         cookie: true,
-//         xfbml: true,
-//         version: 'v2.8'
-//     });
-//     FB.getLoginStatus(function (response) {
-//         statusChangeCallback(response);
-//     });
-//     FB.AppEvents.logPageView();
-// };
-// (function (d, s, id) {
-//     var js, fjs = d.getElementsByTagName(s)[0];
-//     if (d.getElementById(id)) { return; }
-//     js = d.createElement(s); js.id = id;
-//     js.src = "//connect.facebook.net/en_US/sdk.js";
-//     fjs.parentNode.insertBefore(js, fjs);
-// }(document, 'script', 'facebook-jssdk'));
+window.fbAsyncInit = function () {
+    console.log("fbAsyncInit");
+    FB.init({
+        appId: '954902444648707',
+        cookie: true,
+        xfbml: true,
+        version: 'v2.8'
+    });
+    FB.getLoginStatus(function (response) {
+        // statusChangeCallback(response);
+    });
+    FB.AppEvents.logPageView();
+};
+(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) { return; }
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 
 // Check status and run appropriate
 // function statusChangeCallback(response) {
