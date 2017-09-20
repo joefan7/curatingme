@@ -11,7 +11,7 @@ $(document).ready(function () {
     };
 
     var getFreshData = function () {
-        $.get('/linkList', { userId: userId }, function (linkData) {
+        $.get('/linkList', { objId: sessionStorage._id }, function (linkData) {
             linkList = linkData;
             render();
         });
