@@ -72,11 +72,12 @@ function buildProfileInput(dataFromUserCall) {
         let userInputForm = `
         <form id="uiForm">
         <div class="form-group">
-            <h4>You are ow logged in, ${gUserName}.</h4>
+            <h4>You are now logged in, ${gUserName}.</h4>
         </div>
         </form>
         `;
         document.getElementById('user-input-area').innerHTML = userInputForm;
+        alert("Thank you ${gUserName}, you are now logged in.");
     } else {
         console.log("DATA FUC", dataFromUserCall)
         let userInputForm = `
