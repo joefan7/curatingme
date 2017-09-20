@@ -2,6 +2,18 @@ $(document).ready(function () {
     $('.footer-template').load("./html/footer.html");
 });
 
+var gUserId = '';
+var gUserName = '';
+var gUserEmail = '';
+
+// Get User Information
+var getUserInformation = function (userId) {
+    $.get('/userInformation', { userId: userId }, function (dataFromServer) {
+        console.log("dataFromServer : ", dataFromServer)
+        buildProfileInput(dataFromServer)
+    })
+}
+
 // FB Login Initialization
 window.fbAsyncInit = function () {
     console.log("fbAsyncInit");
