@@ -67,11 +67,13 @@ function buildProfileInput(dataFromUserCall) {
         (dataFromUserCall.uiName !== "") &&
         (dataFromUserCall.uiEmail !== "")
     ) {
+        console.log ("BuildProfileInput A")
         $.get('/dashboard', function(req,res) {
             res.sendFile('./html/dashboard.html', {root: './public'})
         })
     } else {
         // Create User Information Doc
+        console.log ("BuildProfileInput B")
         $.post('/user_information/create', {
             userId: gUserId,
             uiName: gUserName,
