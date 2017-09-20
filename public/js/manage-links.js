@@ -25,7 +25,7 @@ $(document).ready(function () {
     var linkList = [];
 
     $('body').on('click', '.linkButton', function (event) {
-        // event.stopPropagation();
+        event.stopPropagation();
         event.preventDefault();
         var btnLinkNumber = $(event.target).attr('btn-link-number');
         var btnItem = document.getElementById(btnLinkNumber);
@@ -36,8 +36,9 @@ $(document).ready(function () {
     });
 
     $('#manage-links-section').on('submit', function (event) {
+        event.stopPropagation();
         event.preventDefault()
-        console.log("gUserId}:", gUserId);
+        console.log("{gUserId}:", gUserId);
         console.log('#manage-links-section this', $(this).serialize());
         $.post('/linkList', $(this).serialize(), function (linkData) {
             console.log('#manage-links-section linkData ', linkData);
