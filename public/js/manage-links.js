@@ -187,7 +187,6 @@ function setElements(isLoggedIn) {
     }
 }
 
-// Logout application out of FB SWAP POINT
 function logout() {
     FB.logout(function (response) {
         buildLoginPrompt();
@@ -195,3 +194,7 @@ function logout() {
     });
 }
 
+// onclick event is assigned to the #button element.
+document.getElementById("logout").onclick = function() {
+  window.location.href = "https://curatingme.com";
+};
