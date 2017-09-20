@@ -175,7 +175,6 @@ function setElements(isLoggedIn) {
         document.getElementById('nav-lists').style.display = 'block';
         document.getElementById('logout').style.display = 'block';
         document.getElementById('fb-btn').style.display = 'none';
-        document.getElementById('heading').style.display = 'none';
     } else {
         document.getElementById('manage-links-section').style.display = 'none';
         document.getElementById('nav-dash').style.display = 'none';
@@ -183,7 +182,6 @@ function setElements(isLoggedIn) {
         document.getElementById('nav-lists').style.display = 'none';
         document.getElementById('logout').style.display = 'none';
         document.getElementById('fb-btn').style.display = 'block';
-        document.getElementById('heading').style.display = 'block';
     }
 }
 
