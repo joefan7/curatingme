@@ -18,6 +18,13 @@ $(document).ready(function () {
     
     // <button btn-link-number="${linkList[i]._id}" class="testButton">Test</button>
 
+    // var getFreshData = function () {
+    //     $.get('/linkList', $(this).serialize() + 'objId=' + localStorage._id, function (linkData) {
+    //         linkList = linkData;
+    //         render();
+    //     });
+    // };
+
     var getFreshData = function () {
         $.get('/linkList', function (linkData) {
             linkList = linkData;
@@ -101,18 +108,18 @@ function statusChangeCallback(response) {
         setElements(false);
     }
 }
-// // Pull in UserName, UserId and Email from FB
-// function testAPI() {
-//     FB.api('/me?fields=name,email', function (response) {
-//         if (response && !response.error) {
-//             console.log("RESPONSE", response);
-//             gUserName = response.name;
-//             gUserId = response.id;
-//             gUserEmail = response.email;
-//             getUserInformation(response.id);
-//         }
-//     })
-// }
+// Pull in UserName, UserId and Email from FB
+function testAPI() {
+    FB.api('/me?fields=name,email', function (response) {
+        if (response && !response.error) {
+            console.log("RESPONSE", response);
+            gUserName = response.name;
+            gUserId = response.id;
+            gUserEmail = response.email;
+            getUserInformation(response.id);
+        }
+    })
+}
 
 function buildProfileInput(dataFromUserCall) {
     console.log("dataFromUserCall", dataFromUserCall.uiName)
