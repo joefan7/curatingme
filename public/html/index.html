@@ -6,7 +6,7 @@
     <script src="https://unpkg.com/vue"></script>
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-    crossorigin="anonymous">
+        crossorigin="anonymous">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- Custom CSS -->
@@ -14,22 +14,63 @@
     <!-- jQuery js -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <!-- bootstrap js -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CuratingMe.com</title>
-        <!-- Custom JS -->
-        <script src="/js/main.js"></script>
-    </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CuratingMe.com</title>
+    <!-- Custom JS -->
+    <script src="/js/main.js"></script>
+</head>
 
 <body>
     <div id="app">
         <!-- Begin Vue app -->
         <!-- NAVBAR START -->
-        <div class="nav-template"></div>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <!-- open navbar -->
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                        aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        </button>
+                    <a class="navbar-brand" href="/"><img src="/favicon.ico"></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/instructions">Instructions</a></li>
+                        <li><a id="nav-dash" href="/dashboard">Dashboard</a></li>
+                        <li><a id="nav-links" href="/manage-links">Manage Links</a></li>
+                        <li><a id="nav-lists" href="/manage-lists">Manage Lists</a></li>
+                        <li><a href="/about">About</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- Facebook Login  -->
+                        <li>
+                            <a id="logout" onclick="logout()">Logout</a>
+                        </li>
+                        <!-- <li>
+                        <fb:login-button id="fb-btn" scope="public_profile, email" onlogin="checkLoginState();">
+                        </fb:login-button>
+                    </li> -->
+                        <!-- Facebook Login  -->
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <!-- close navbar -->
         <!-- NAVBAR END -->
 
         <div class="container-fluid">
