@@ -121,6 +121,7 @@ $(document).on('click', '#build', function (evt) {
       `;
     document.getElementById('user-input-area').innerHTML = userInputForm;
     setElements(true);
+    setTimeout(location.reload.bind(location), 2000);
 });
 
 // Build the Login Prompt
