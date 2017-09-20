@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $('.footer-template').load("./html/footer.html");
-    window.fbAsyncInit;
+    window.fbAsyncInit();
     console.log("Local Storage _id:", localStorage._id);
 
     var render = function () {
