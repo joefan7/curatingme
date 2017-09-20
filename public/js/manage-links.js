@@ -1,5 +1,7 @@
 $(document).ready(function () {
     $('.footer-template').load("./html/footer.html");
+    location.reload();
+    
 
     var render = function () {
         $('#manage-links-list').empty();
