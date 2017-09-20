@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('.footer-template').load("./html/footer.html");
 
-    $.get('/userInformation',)
+    $.get('/userInformation', )
 
     var render = function () {
         $('#manage-links-list').empty();
@@ -187,7 +187,7 @@ function setElements(isLoggedIn) {
     }
 }
 
-function logout() {
+logout = function () {
     FB.logout(function (response) {
         buildLoginPrompt();
         setElements(false);
@@ -195,6 +195,7 @@ function logout() {
 }
 
 // onclick event is assigned to the #button element.
-document.getElementById("logout").onclick = function() {
-  window.location.href = "https://curatingme.com";
+document.getElementById("logout").onclick = function () {
+    logout();
+    window.location.href = "https://curatingme.com";
 };
