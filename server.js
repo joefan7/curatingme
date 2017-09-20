@@ -47,18 +47,7 @@ app.post('/user_information/create', function(req, res, next){
 });
 
 //=-=-=-= Manage Links =-=-=-=
-// app.get('/linkList', function(req, res, next){
-//     console.log("REQ.BODY", req.body)
-//     db.UserLinksModel.find({objId: req.body}, function(err, linkData){
-//         if ( err ) { next(err);}
-//         else {
-//             res.send(linkData); 
-//         }
-//     });
-// });
-
 app.get('/linkList', function(req, res, next){
-    console.log("REQ.BODY", req.body)
     db.UserLinksModel.find({}, function(err, linkData){
         if ( err ) { next(err);}
         else {
@@ -90,6 +79,16 @@ app.post('/linkList/delete', function(req, res, next){
         res.send({success:'success!'})
     })
 })
+
+//=-=-=-= Manage Lists =-=-=-=
+app.get('/listList', function(req, res, next){
+    db.UserListsModel.find({}, function(err, listData){
+        if ( err ) { next(err);}
+        else {
+            res.send(listData); 
+        }
+    });
+});
 
 
 // Client routes

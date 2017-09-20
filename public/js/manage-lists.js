@@ -2,16 +2,12 @@ $(document).ready(function () {
     $('.footer-template').load("./html/footer.html");
     console.log("Local Storage _id:", localStorage._id);
 
-    var render = function () {
+    var renderLinks = function () {
         $('#manage-lists-list').empty();
         for (var i = 0; i < listList.length; i++) {
-            $('#manage-lists-list').append(`
-            <li id="${listList[i]._id}" class="list">
-                <button btn-list-number="${listList[i]._id}" class="listButton">Delete</button>
-                ${listList[i]['listName']}
-                -
-                ${listList[i]['listObjIds']}
-            </li>
+            $('#manage-lists-list').append
+            (`
+            <li class="list-group-item list" id="${listList[i]._id}" value="${listList[i]._id}">"${listList[i].linkName} - ${listList[i].linkUrl}"</li>
             `);
         }
     };
@@ -21,7 +17,7 @@ $(document).ready(function () {
     var getFreshData = function () {
         $.get('/listList', function (listData) {
             listList = listData;
-            render();
+            renderLinks();
         });
     };
     
