@@ -35,6 +35,77 @@ function statusChangeCallback(response) {
         setElements(false);
     }
 }
+// Pull in UserName, UserId and Email from FB
+function testAPI() {
+    FB.api('/me?fields=name,email', function (response) {
+        if (response && !response.error) {
+            console.log("RESPONSE", response)
+            gUserName = response.name
+            gUserId = response.id
+            gUserEmail = response.email
+            getUserInformation(response.id);
+        }
+    })
+}
+
+function buildProfileInput(dataFromUserCall) {
+    console.log("dataFromUserCall", dataFromUserCall.uiName)
+    // if all data fields in dataFromUserCall are populated create a welcome message with links to activity and food entry pages
+    if (
+        (dataFromUserCall !== "") &&
+        (dataFromUserCall.userId !== "") &&
+        (dataFromUserCall.uiName !== "") &&
+        (dataFromUserCall.uiEmail !== "")
+    ) {
+        let userInputForm = `
+        <form id="uiForm">
+        <div class="form-group">
+            <h2>Thank you for logging in, ${gUserName}.</h2>
+            <a href="/instructions">Start Curating</a>
+        </div>
+        </form>
+        `;
+        document.getElementById('user-input-area').innerHTML = userInputForm;
+    } else {
+        console.log("DATA FUC", dataFromUserCall)
+        let userInputForm = `
+  <form id="uiForm">
+  <div class="form-group">
+      <h2>Thank you for logging in, ${gUserName}.</h2>
+      <input id="userId" class="form-control hidden" value="${gUserId}">
+      <input id="uiName" class="form-control hidden" value="${gUserName}">
+      <input id="uiEmail" class="form-control hidden" value="${gUserEmail}">
+      <button type="submit" id="build" class="form-control btn btn-primary">
+          Create New User
+      </button>
+  </div>
+  </form>
+  `;
+        document.getElementById('user-input-area').innerHTML = userInputForm;
+    }
+}
+$(document).on('click', '#build', function (evt) {
+    evt.preventDefault();
+    // Create User Information Doc
+    $.post('/user_information/create', {
+        userId: $('#userId').val(),
+        uiName: $('#uiName').val(),
+        uiEmail: $('#uiEmail').val(),
+        uiBio: $('#uiBio').val()
+    }, function (dataFromServer) {
+        console.log("dataFromServer : ", dataFromServer)
+        buildProfileInput(dataFromServer)
+    })
+    let userInputForm = `
+      <form id="uiForm">
+      <div class="form-group">
+          <h2>New User Created</h2>
+          <a href="/instructions">Start Curating</a>
+      </div>
+      </form>
+      `;
+    document.getElementById('user-input-area').innerHTML = userInputForm;
+});
 
 // Build the Login Prompt
 function buildLoginPrompt() {
