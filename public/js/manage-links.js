@@ -7,7 +7,8 @@ $(document).ready(function () {
         for (var i = 0; i < linkList.length; i++) {
             $('#manage-links-list').append(`
             <li id="${linkList[i]._id}" class="link">
-                <button btn-link-number="${linkList[i]._id}" class="testButton">Test</button>
+                <input type=button onClick='location.href="${linkList[i]['linkUrl']"' value='Test'>
+                // <button btn-link-number="${linkList[i]._id}" class="testButton">Test</button>
                 <button btn-link-number="${linkList[i]._id}" class="linkButton">Delete</button>
                 ${linkList[i]['linkName']}
                 -
