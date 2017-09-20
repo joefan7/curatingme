@@ -1,6 +1,5 @@
 $(document).ready(function () {
     $('.footer-template').load("./html/footer.html");
-    render();
     console.log("Session Storage _id:", sessionStorage._id);
 
     var render = function () {
@@ -23,6 +22,7 @@ $(document).ready(function () {
     });
 
     var linkList = [];
+    getFreshData();
 
     $('body').on('click', '.linkButton', function (event) {
         event.stopPropagation();
