@@ -1,5 +1,5 @@
-var mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost:27017/curatingme')
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/curatingme');
 
 var userInformationSchema = mongoose.Schema({
     userId: {
@@ -14,7 +14,7 @@ var userInformationSchema = mongoose.Schema({
         type: String,
         unique: true,
     }
-})
+});
 
 var userLinksSchema = mongoose.Schema({
     objId: {
@@ -27,13 +27,13 @@ var userLinksSchema = mongoose.Schema({
     linkUrl: {
         type: String,
     }
-})
+});
 
 
-var UserInformationModel = mongoose.model('userInformation', userInformationSchema, 'userInformation')
-var UserLinksModel = mongoose.model('userLinks', userLinksSchema, 'userLinks')
+var UserInformationModel = mongoose.model('userInformation', userInformationSchema, 'userInformation');
+var UserLinksModel = mongoose.model('userLinks', userLinksSchema, 'userLinks');
 
 module.exports = {
     UserInformationModel: UserInformationModel,
     UserLinksModel: UserLinksModel
-}
+};

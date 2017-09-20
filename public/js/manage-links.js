@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $('.footer-template').load("./html/footer.html");
-
+    render();
     console.log("Session Storage _id:", sessionStorage._id);
 
     var render = function () {
