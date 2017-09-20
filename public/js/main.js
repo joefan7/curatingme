@@ -67,14 +67,6 @@ function testAPI() {
         }
     })
 }
-// =-=-=-=-=
-function storeUserId() {
-    if(typeof(Storage) !== "undefined") {   
-    } else {
-        alert("Sorry, your browser does not support web storage...");
-    }
-}
-// =-=-=-=-=
 
 function buildProfileInput(dataFromUserCall) {
     console.log("dataFromUserCall", dataFromUserCall.uiName)

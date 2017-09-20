@@ -36,7 +36,6 @@ $(document).ready(function () {
     });
 
     $('#manage-links-section').on('submit', function (event) {
-        event.stopPropagation();
         event.preventDefault();
         $.post('/linkList', {
             objId: sessionStorage._id,
