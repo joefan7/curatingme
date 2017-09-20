@@ -73,14 +73,12 @@ function buildProfileInput(dataFromUserCall) {
       let userInputForm = `
   <form id="uiForm">
   <div class="form-group">
-      <h2>Please tell us a little about yourself ${gUserName}.</h2>
+      <h2>Thank you for logging in, ${gUserName}.</h2>
       <input id="userId" class="form-control hidden" value="${gUserId}">
       <input id="uiName" class="form-control hidden" value="${gUserName}">
       <input id="uiEmail" class="form-control hidden" value="${gUserEmail}">
-      <h3>Bio</h3>
-      <input id="uiBio" type="text" class="form-control" placeholder="Short Bio 150 Characters">
       <button type="submit" id="build" class="form-control btn btn-primary">
-          RECORD MY INFO
+          Create New User
       </button>
   </div>
   </form>
