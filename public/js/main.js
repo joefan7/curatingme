@@ -58,11 +58,10 @@ function statusChangeCallback(response) {
 function testAPI() {
     FB.api('/me?fields=name,email', function (response) {
         if (response && !response.error) {
-            console.log("RESPONSE", response)
-            gUserName = response.name
-            gUserId = response.id
-            gUserEmail = response.email
-            storeUserId();
+            console.log("RESPONSE", response);
+            gUserName = response.name;
+            gUserId = response.id;
+            gUserEmail = response.email;
             getUserInformation(response.id);
         }
     })
