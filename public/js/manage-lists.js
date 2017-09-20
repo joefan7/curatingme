@@ -7,7 +7,7 @@ $(document).ready(function () {
         for (var i = 0; i < linkList.length; i++) {
             $('#links-list').append
             (`
-            <li class="list-group-item list" id="${linkList[i]._id}" value="${linkList[i]._id}">"${listList[i].linkName} - ${listList[i].linkUrl}"</li>
+            <li class="list-group-item list" id="${linkList[i]._id}" value="${linkList[i]._id}">"${linkList[i].linkName} - ${linkList[i].linkUrl}"</li>
             `);
         }
     };
@@ -15,8 +15,8 @@ $(document).ready(function () {
     // <button btn-link-number="${linkList[i]._id}" class="testButton">Test</button>
 
     var getFreshData = function () {
-        $.get('/list/linkList', function (listData) {
-            listList = listData;
+        $.get('/list/linkList', function (linkData) {
+            linkList = linkData;
             renderLinks();
         });
     };
