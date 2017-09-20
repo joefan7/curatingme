@@ -40,6 +40,9 @@ a, a:hover {
     margin-top: 15px;
     margin-right: 40px;
 }
+.img-thumbnail {
+    border: none;
+}
 
 /* #fb-btn2 {
     margin-top: 15px;
