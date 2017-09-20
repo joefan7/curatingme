@@ -75,7 +75,7 @@ function buildProfileInput(dataFromUserCall) {
             uiName: gUserName,
             uiEmail: gUserEmail
         }, function (dataFromServer) {
-            $.get('/dashboard', {})
+            $.get('/dashboard', function(req,res){})
         })
     }
 };
