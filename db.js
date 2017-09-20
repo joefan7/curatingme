@@ -29,11 +29,25 @@ var userLinksSchema = mongoose.Schema({
     }
 });
 
+var userListsSchema = mongoose.Schema({
+    objId: {
+        type: String,
+        required: true,
+    },
+    listName: {
+        type: String,
+    },
+    listObjIds: {
+        type: Object,
+    }
+});
 
 var UserInformationModel = mongoose.model('userInformation', userInformationSchema, 'userInformation');
 var UserLinksModel = mongoose.model('userLinks', userLinksSchema, 'userLinks');
+var UserListsModel = mongoose.model('userLists', userListsSchema, 'userLists');
 
 module.exports = {
     UserInformationModel: UserInformationModel,
-    UserLinksModel: UserLinksModel
+    UserLinksModel: UserLinksModel,
+    UserListsModel: UserListsModel
 };
