@@ -111,11 +111,6 @@ $(document).on('click', '#build', function (evt) {
     document.getElementById('user-input-area').innerHTML = userInputForm;
 });
 
-// Build the Login Prompt
-function buildLoginPrompt() {
-    alert(`${gUserName}, you are now logged out.`);
-}
-
 // Check FB Login State
 function checkLoginState() {
     FB.getLoginStatus(function (response) {
@@ -145,7 +140,6 @@ function setElements(isLoggedIn) {
 // Logout application out of FB
 function logout() {
     FB.logout(function (response) {
-        buildLoginPrompt();
         setElements(false);
     });
 }
