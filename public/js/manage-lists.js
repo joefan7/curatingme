@@ -13,6 +13,7 @@ $(document).ready(function () {
                     </label>
                 </div>
             `);
+            console.log("Link ObjectId", `${linkList[i]._id}`)
         }
     };
     // <li class="list-group-item list" id="${linkList[i]._id}" value="${linkList[i]._id}">${linkList[i].linkName} - ${linkList[i].linkUrl}</li>
