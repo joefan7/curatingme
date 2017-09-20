@@ -47,9 +47,19 @@ app.post('/user_information/create', function(req, res, next){
 });
 
 //=-=-=-= Manage Links =-=-=-=
+// app.get('/linkList', function(req, res, next){
+//     console.log("REQ.BODY", req.body)
+//     db.UserLinksModel.find({objId: req.body}, function(err, linkData){
+//         if ( err ) { next(err);}
+//         else {
+//             res.send(linkData); 
+//         }
+//     });
+// });
+
 app.get('/linkList', function(req, res, next){
     console.log("REQ.BODY", req.body)
-    db.UserLinksModel.find({objId: req.body}, function(err, linkData){
+    db.UserLinksModel.find({}, function(err, linkData){
         if ( err ) { next(err);}
         else {
             res.send(linkData); 
