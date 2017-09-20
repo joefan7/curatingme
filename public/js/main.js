@@ -133,6 +133,7 @@ $(document).on('click', '#build', function (evt) {
         uiBio: $('#uiBio').val()
     }, function (dataFromServer) {
         console.log("dataFromServer : ", dataFromServer)
+        console.log("dataFromServer _id: ", dataFromServer._id)
         buildProfileInput(dataFromServer)
     })
     let userInputForm = `
