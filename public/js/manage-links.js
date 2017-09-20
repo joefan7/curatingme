@@ -18,7 +18,7 @@ $(document).ready(function () {
     };
 
     var getFreshData = function () {
-        $.get('/linkList', { objId: localStorage._id }, function (linkData) {
+        $.get('/linkList', function (linkData) {
             linkList = linkData;
             render();
         });
