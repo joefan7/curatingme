@@ -37,8 +37,7 @@ app.post('/user_information/create', function(req, res, next){
     var newUserInformation = new db.UserInformationModel({
         userId: req.body.userId,
         uiName: req.body.uiName,
-        uiEmail: req.body.uiEmail,
-        uiBio: req.body.uiBio
+        uiEmail: req.body.uiEmail
     })
     newUserInformation.save(function(err,newUser){
         if (err) { next(err) }
