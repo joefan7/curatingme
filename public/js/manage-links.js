@@ -38,6 +38,7 @@ $(document).ready(function () {
 
     $('#manage-links-section').on('submit', function (event) {
         event.preventDefault()
+        console.log("gUserId}:", gUserId);
         console.log('#manage-links-section this', $(this).serialize());
         $.post('/linkList', $(this).serialize(), function (linkData) {
             console.log('#manage-links-section linkData ', linkData);
