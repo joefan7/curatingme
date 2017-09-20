@@ -83,7 +83,7 @@ function buildProfileInput(dataFromUserCall) {
         (dataFromUserCall.uiEmail !== "")
     ) {
     } else {
-        console.log("DATA FUC", dataFromUserCall)
+        setElements(false);
         let userInputForm = `
   <form id="uiForm">
   <div class="form-group">
@@ -116,11 +116,11 @@ $(document).on('click', '#build', function (evt) {
       <form id="uiForm">
       <div class="form-group">
           <h2>New User Created</h2>
-          <a href="/instructions">Start Curating</a>
       </div>
       </form>
       `;
     document.getElementById('user-input-area').innerHTML = userInputForm;
+    setElements(true);
 });
 
 // Build the Login Prompt
