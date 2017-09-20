@@ -5,7 +5,14 @@ $(document).ready(function () {
     var render = function () {
         $('#manage-links-list').empty();
         for (var i = 0; i < linkList.length; i++) {
-            $('#manage-links-list').append(`<li id="${linkList[i]._id}" class="link"><button btn-link-number="${linkList[i]._id}" class="linkButton">Delete</button> ${linkList[i]['linkName']}</li>`);
+            $('#manage-links-list').append(`
+            <li id="${linkList[i]._id}" class="link">
+                <button btn-link-number="${linkList[i]._id}" class="testButton">Test</button>
+                <button btn-link-number="${linkList[i]._id}" class="linkButton">Delete</button>
+                ${linkList[i]['linkName']}
+                ${linkList[i]['linkUrl']}
+            </li>
+            `);
         }
     };
 
