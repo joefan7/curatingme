@@ -84,7 +84,7 @@ function buildProfileInput(dataFromUserCall) {
     ) {
     } else {
         setElements(false);
-        location.reload();
+        // location.reload();
         let userInputForm = `
   <form id="uiForm">
   <div class="form-group">
