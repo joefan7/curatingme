@@ -1,6 +1,3 @@
-var gUserId = '';
-var gUserName = '';
-var gUserEmail = '';
 $(document).ready(function () {
     $('.footer-template').load("./html/footer.html");
 
@@ -23,6 +20,9 @@ $(document).ready(function () {
         $('.navbar-collapse').collapse('hide');
     });
 
+    var gUserId = '';
+    var gUserName = '';
+    var gUserEmail = '';
     var linkList = [];
 
     $('body').on('click', '.linkButton', function (event) {
@@ -44,7 +44,7 @@ $(document).ready(function () {
             getFreshData();
         });
     });
-});
+}); // moved to end of file to bring in User Authentication into $(document).ready
 
 // Get User Information
 var getUserInformation = function (userId) {
