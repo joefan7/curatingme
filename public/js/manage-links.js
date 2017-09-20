@@ -1,5 +1,8 @@
 $(document).ready(function () {
     $('.footer-template').load("./html/footer.html");
+
+    $.get('/userInformation',)
+
     var render = function () {
         $('#manage-links-list').empty();
         for (var i = 0; i < linkList.length; i++) {
@@ -20,9 +23,6 @@ $(document).ready(function () {
     });
 
     var linkList = [];
-    var lUserId = gUserId;
-    var lUserName = gUserName;
-    var lUserEmail = gUserEmail;
 
     $('body').on('click', '.linkButton', function (event) {
         event.stopPropagation();
