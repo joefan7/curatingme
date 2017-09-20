@@ -72,8 +72,7 @@ function buildProfileInput(dataFromUserCall) {
         let userInputForm = `
         <form id="uiForm">
         <div class="form-group">
-            <h2>Thank you for logging in, ${gUserName}.</h2>
-            <a href="/instructions">Start Curating</a>
+            <h4>You are ow logged in, ${gUserName}.</h4>
         </div>
         </form>
         `;
@@ -122,8 +121,7 @@ $(document).on('click', '#build', function (evt) {
 // Build the Login Prompt
 function buildLoginPrompt() {
     let loginPrompt = `
-    <h1>Welcome to CuratingMe.com</h1>
-    <img src="/images/logo.png" class="img-responsive img-center">
+    <h4>Currently not logged in.</h4>
   `;
     document.getElementById('user-input-area').innerHTML = loginPrompt;
 }
