@@ -113,10 +113,7 @@ $(document).on('click', '#build', function (evt) {
 
 // Build the Login Prompt
 function buildLoginPrompt() {
-    let loginPrompt = `
-    <h4>Currently not logged in.</h4>
-  `;
-    document.getElementById('user-input-area').innerHTML = loginPrompt;
+    alert(`${gUserName}, you are now logged out.`);
 }
 
 // Check FB Login State
