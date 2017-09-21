@@ -28,7 +28,7 @@ $(document).ready(function () {
                 </li>
                 `);
             for (var index in listList[i][objId]){
-                $.get('/link', {_id: listList[i][objId']}, function (dataFromServer){
+                $.get('/link', {_id: listList[i][objId]}, function (dataFromServer){
                     console.log("dataFromServer", dataFromServer); // apend next
                 });
             }
