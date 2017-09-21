@@ -37,7 +37,7 @@ var userListsSchema = mongoose.Schema({
     listName: {
         type: String,
     },
-    listObjIds: {
+    listLinks: {
         type: String,
         required: true,
     }

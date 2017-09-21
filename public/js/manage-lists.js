@@ -9,7 +9,7 @@ $(document).ready(function () {
                 (`
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" name="links[]" value="${linkList[i]._id}">${linkList[i].linkName} - ${linkList[i].linkUrl}
+                        <input type="checkbox" name="links[]" value="${linkList[i].linkName} - ${linkList[i].linkUrl}">${linkList[i].linkName} - ${linkList[i].linkUrl}
                     </label>
                 </div>
             `);
