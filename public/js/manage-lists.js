@@ -204,11 +204,11 @@ logout = function () {
     FB.logout(function (response) {
         buildLoginPrompt();
         setElements(false);
+        setTimeout(window.location.href = "https://curatingme.com",5000);
     });
 }
 
 // onclick event is assigned to the #button element.
 document.getElementById("logout").onclick = function () {
     logout();
-    setTimeout(window.location.href = "https://curatingme.com",5000);
 };
