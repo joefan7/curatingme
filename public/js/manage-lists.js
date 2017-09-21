@@ -18,8 +18,8 @@ $(document).ready(function () {
     var renderLists = function () {
         console.log("listList: ", listList);
         // clear out lists-list and lists-list-links
-        $('#list-lists').empty();
-        $('#list-lists-links').empty();
+        $('#lists-list').empty();
+        $('#lists-list-links').empty();
         $('input:checkbox').removeAttr('checked');    
         for (var i = 0; i < listList.length; i++) {
             $('#lists-list').append
