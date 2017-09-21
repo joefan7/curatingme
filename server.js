@@ -108,8 +108,8 @@ app.get('/listList', function(req, res, next){
         else {
             res.send(listData);
         }
-    })
-})
+    });
+});
 
 // insert new list
 app.post('/listList', function(req, res, next){   
