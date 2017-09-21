@@ -124,6 +124,18 @@ app.post('/listList', function(req, res, next){
     });
 });
 
+// delete a list
+app.post('/listList/delete', function(req, res, next){
+    db.UserListsModel.find({_id: req.body}, function(err, docs){
+        if(err) {next(err)}
+        else {
+            docs[0].remove(function(err){
+                if ( err ) { next(err) }
+            })
+        }
+        res.send({success:'success!'})
+    })
+})
 
 // Client routes
 // home page routes

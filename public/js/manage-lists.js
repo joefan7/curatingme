@@ -28,8 +28,7 @@ $(document).ready(function () {
                 <button btn-list-number="${listList[i]._id}" class="listButton">Delete</button>
                 ${listList[i]['listName']}
                 <br>
-                ${listList[i]['listLinks']}
-                <br>
+                ${listList[i]['listLinks']} 
                 </li>
                 `);
         }
