@@ -32,7 +32,7 @@ $(document).ready(function () {
         // get list of lists and lookup links from link collection
         $.get('/listList', function (listData){
             console.log ("listData:", listData);
-            console.log ("listData.listName", listData.listName);
+            console.log ("listData.listName", listData[listName]);
         });
     };
 
