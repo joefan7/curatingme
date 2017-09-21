@@ -75,7 +75,7 @@ $(document).ready(function () {
             $.post('/listList', {
                 objId: localStorage._id,
                 listName: $('#listName').val(),
-                listObjIds: checkedArr
+                listObjIds: checkedArr.join()
             });
             document.getElementById('listName').value = '';
             getFreshData();
