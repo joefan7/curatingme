@@ -29,7 +29,7 @@ $(document).ready(function () {
                 </li>
                 `);
             for (var index in listList[i]['objId']){
-                $.get('/link', {_id: listList[i]['objId']}, function (linkData){
+                $.get('/link', {_id: listList[i][objId]}, function (linkData){
                     console.log("dataFromServer", linkData); // apend next
                 });
             }
