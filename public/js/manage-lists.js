@@ -28,8 +28,8 @@ $(document).ready(function () {
                 </li>
                 `);
             for (var index in listList[i]['objId']){
-                $.get('/link', {_id: listList[i]['objId']}, function (dataFromServer){
-                    console.log("dataFromServer", dataFromServer); // apend next
+                $.get('/link', {_id: listList[i]['objId']}, function (linkData){
+                    console.log("dataFromServer", linkData); // apend next
                 });
             }
         }
@@ -45,6 +45,7 @@ $(document).ready(function () {
         $.get('/listList', function (listData){
             listList = listData;
             console.log("listList arr: ", listList);
+            console.log("listData: ", listData);
             renderLists();
         });
     };
