@@ -26,11 +26,7 @@ $(document).ready(function () {
                 <li id="${listList[i]._id}" class="list">
                 <button btn-list-number="${listList[i]._id}" class="listButton">Delete</button>
                 ${listList[i]['listName']}
-                </li>
-                `);
-            $('#lists-list-links').append
-                (`
-                <li class="list">
+                <br>
                 ${listList[i]['listLinks']}
                 </li>
                 `);
