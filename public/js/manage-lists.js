@@ -18,7 +18,7 @@ $(document).ready(function () {
 
     $('form').submit(function () {
         var arr = [];
-        $('input:checked[name=links[]]').each(function () {
+        $('input[type=checkbox]:checked').each(function () {
             arr.push($(this).val());
         });
         console.log("Checked items", arr)
