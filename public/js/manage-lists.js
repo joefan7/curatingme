@@ -27,8 +27,8 @@ $(document).ready(function () {
                 ${listList[i]['listName']}
                 </li>
                 `);
-            for (var index in listList[i][listObjIds]){
-                $.get('/link', {_id: listList[i][listObjIds]}, function (dataFromServer){
+            for (var index in listList[i][ObjIds]){
+                $.get('/link', {_id: listList[i][ObjIds]}, function (dataFromServer){
                     console.log("dataFromServer", dataFromServer); // apend next
                 });
             }
