@@ -32,9 +32,9 @@ $(document).ready(function () {
             // for (var index in listList[i]['listObjIds']){
             //     $.get('/link', {_id: listList[i]['listObjIds']}, function (linkData){
             //         console.log("dataFromServer", linkData); // apend next
-                });
+                // });
             }
-        }
+        };
     };
 
     var getFreshData = function () {
