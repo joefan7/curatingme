@@ -22,13 +22,13 @@ $(document).ready(function () {
         for (var i = 0; i < linkList.length; i++) {
             $('#lists-list').append
                 (`
-                <li id="${listList[i]._id}" class="list">
-                <button btn-list-number="${listList[i]._id}" class="listButton">Delete</button>
+                <li id="${listList[i]['_id']}" class="list">
+                <button btn-list-number="${listList[i]['_id']}" class="listButton">Delete</button>
                 ${listList[i]['listName']}
                 </li>
                 `);
-            for (var index in listList[i].objIds){
-                $.get('/link', {_id: listList[i].objIds}, function (dataFromServer){
+            for (var index in listList[i]['objIds']){
+                $.get('/link', {_id: listList[i]['objIds']}, function (dataFromServer){
                     console.log("dataFromServer", dataFromServer); // apend next
                 });
             }
