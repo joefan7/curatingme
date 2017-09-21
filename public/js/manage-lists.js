@@ -86,6 +86,7 @@ $(document).ready(function () {
                 listLinks: checkedArr.join()
             });
             document.getElementById('listName').value = '';
+            checkedArr = [];
             getFreshData();
         };
     });
