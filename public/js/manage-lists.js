@@ -35,62 +35,62 @@ $(document).ready(function () {
             // });
         }
     };
-}); 
 
-var getFreshData = function () {
-    // get list of links for check box group
-    $.get('/list/linkList', function (linkData) {
-        linkList = linkData;
-        renderLinks();
-    });
-    // get list of lists and lookup links from link collection
-    $.get('/listList', function (listData) {
-        listList = listData;
-        renderLists();
-    });
-};
 
-// collapse nav bar when selection made
-$('.navbar-nav>li>a').on('click', function () {
-    $('.navbar-collapse').collapse('hide');
-});
-
-var linkList = [];
-var listList = [];
-var checkedArr = [];
-getFreshData();
-
-$('body').on('click', '.listButton', function (event) {
-    event.stopPropagation();
-    event.preventDefault();
-    var btnListNumber = $(event.target).attr('btn-list-number');
-    var btnItem = document.getElementById(btnListNumber);
-    console.log("Button Clicked", btnListNumber, btnItem);
-    $.post('/listList/delete', $(this).serialize() + '_id=' + btnListNumber, function (listData) {
-        getFreshData();
-    });
-});
-
-$('#manage-lists-section').on('submit', function (event) {
-    event.preventDefault();
-    $('input[type=checkbox]:checked').each(function () {
-        checkedArr.push($(this).val());
-    });
-    if (checkedArr.length === 0) {
-        alert("You must check at least one link.")
-    } else {
-        console.log("Checked items array", checkedArr);
-        console.log("objId of user", localStorage._id);
-        console.log("List name", $('#listName').val());
-        $.post('/listList', {
-            objId: localStorage._id,
-            listName: $('#listName').val(),
-            listObjIds: checkedArr.join()
+    var getFreshData = function () {
+        // get list of links for check box group
+        $.get('/list/linkList', function (linkData) {
+            linkList = linkData;
+            renderLinks();
         });
-        document.getElementById('listName').value = '';
-        getFreshData();
+        // get list of lists and lookup links from link collection
+        $.get('/listList', function (listData) {
+            listList = listData;
+            renderLists();
+        });
     };
-});
+
+    // collapse nav bar when selection made
+    $('.navbar-nav>li>a').on('click', function () {
+        $('.navbar-collapse').collapse('hide');
+    });
+
+    var linkList = [];
+    var listList = [];
+    var checkedArr = [];
+    getFreshData();
+
+    $('body').on('click', '.listButton', function (event) {
+        event.stopPropagation();
+        event.preventDefault();
+        var btnListNumber = $(event.target).attr('btn-list-number');
+        var btnItem = document.getElementById(btnListNumber);
+        console.log("Button Clicked", btnListNumber, btnItem);
+        $.post('/listList/delete', $(this).serialize() + '_id=' + btnListNumber, function (listData) {
+            getFreshData();
+        });
+    });
+
+    $('#manage-lists-section').on('submit', function (event) {
+        event.preventDefault();
+        $('input[type=checkbox]:checked').each(function () {
+            checkedArr.push($(this).val());
+        });
+        if (checkedArr.length === 0) {
+            alert("You must check at least one link.")
+        } else {
+            console.log("Checked items array", checkedArr);
+            console.log("objId of user", localStorage._id);
+            console.log("List name", $('#listName').val());
+            $.post('/listList', {
+                objId: localStorage._id,
+                listName: $('#listName').val(),
+                listObjIds: checkedArr.join()
+            });
+            document.getElementById('listName').value = '';
+            getFreshData();
+        };
+    });
 });
 
 
