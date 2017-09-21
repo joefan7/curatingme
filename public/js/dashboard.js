@@ -5,7 +5,7 @@ $(document).ready(function () {
     var renderLinks = function () {
         $('#links-section').empty();
         for (var i = 0; i < linkList.length; i++) {
-            $('#links-list').append
+            $('#links-section').append
                 (`
                 <div class="checkbox">
                     <label>
