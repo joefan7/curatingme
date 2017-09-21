@@ -33,7 +33,7 @@ $(document).ready(function () {
                 console.log("tempArr: ", tempArr);
                 for (var j = 0; j < tempArr.length; j++){
                     var objId = tempArr[j];
-                    $.get('/link',{ _id: objId }, function(linkData){
+                    $.get('/link',{ _id: ObjectId(objId) }, function(linkData){
                         console.log(linkData);
                     });
                 }
