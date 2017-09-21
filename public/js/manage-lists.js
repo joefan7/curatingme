@@ -31,9 +31,9 @@ $(document).ready(function () {
         $('#list-lists-lionks').empty();
         // get list of lists and lookup links from link collection
         $.get('/listList', function (listData){
-            console.log ("listData:", listData)
-            console.log ("listData.listName" listData.listName)
-        })
+            console.log ("listData:", listData);
+            console.log ("listData.listName", listData.listName);
+        });
     };
 
     // collapse nav bar when selection made
