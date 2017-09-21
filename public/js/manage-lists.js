@@ -30,7 +30,8 @@ $(document).ready(function () {
                 `);
                 console.log("INDEX: ", listList[i].listObjIds);
                 for(var index in listList[i].listObjIds){
-                    console.log("listObjIds: ", listList[i].listObjIds);
+                    // console.log("listObjIds: ", listList[i].listObjIds);
+                    console.log("index", index);
                 }
             }
         };
