@@ -29,10 +29,12 @@ $(document).ready(function () {
                 </li>
                 `);
                 console.log("INDEX: ", listList[i].listObjIds);
-                for(var index in listList[i].listObjIds){
-                    // console.log("listObjIds: ", listList[i].listObjIds);
-                    console.log("index", index);
-                }
+                var tempArr = listList[i].listObjIds.split(',');
+                console.log("tempArr: ", tempArr);
+                // for(var index in listList[i].listObjIds){
+                //     // console.log("listObjIds: ", listList[i].listObjIds);
+                //     console.log("index", index);
+                // }
             }
         };
         
