@@ -35,7 +35,7 @@ $(document).ready(function () {
             // });
         }
     };
-});
+}); 
 
 var getFreshData = function () {
     // get list of links for check box group
