@@ -29,16 +29,11 @@ $(document).ready(function () {
                 </li>
                 `);
                 console.log("INDEX: ", listList[i].listObjIds);
-                // for(var index in listList[i]['listObjIds']){
-                //     console.log("listObjIds: ", listList[i]['listObjIds']);
-                // }
+                for(var index in listList[i].listObjIds){
+                    console.log("listObjIds: ", listList[i].listObjIds);
+                }
             }
         };
-        
-        // for (var index in listList[i]['listObjIds']){
-        //     $.get('/link', {_id: listList[i]['listObjIds']}, function (linkData){
-        //         console.log("dataFromServer", linkData); // apend next
-        // });
         
     var getFreshData = function () {
         // get list of links for check box group
