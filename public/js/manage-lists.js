@@ -28,18 +28,9 @@ $(document).ready(function () {
                 ${listList[i]['listName']}
                 </li>
                 `);
-                console.log("INDEX: ", listList[i].listObjIds);
-                var tempArr = listList[i].listObjIds.split(',');
-                console.log("tempArr: ", tempArr);
-                for (var j = 0; j < tempArr.length; j++){
-                    var objId = tempArr[j];
-                    $.get('/link',{ _id: ObjectId(objId) }, function(linkData){
-                        console.log(linkData);
-                    });
-                }
-            }
-        };
-        
+        }
+    };
+
     var getFreshData = function () {
         // get list of links for check box group
         $.get('/list/linkList', function (linkData) {
