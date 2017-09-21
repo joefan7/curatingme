@@ -29,10 +29,10 @@ $(document).ready(function () {
                 </li>
                 `);
             console.log("INDEX: ", listList[i]['listObjIds']);
-            // for (var index in listList[i]['listObjIds']){
-            //     $.get('/link', {_id: listList[i]['listObjIds']}, function (linkData){
-            //         console.log("dataFromServer", linkData); // apend next
-            // });
+            for (var index in listList[i]['listObjIds']){
+                $.get('/link', {_id: listList[i]['listObjIds']}, function (linkData){
+                    console.log("dataFromServer", linkData); // apend next
+            });
         }
     };
 
