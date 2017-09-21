@@ -26,7 +26,7 @@
     <div id="app">
         <!-- Begin Vue app -->
         <!-- NAVBAR START -->
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default navbar-fixed-top">
             <!-- open navbar -->
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for mobile display -->
@@ -46,9 +46,9 @@
                     <ul class="nav navbar-nav">
                         <li><a href="/">Home</a></li>
                         <li><a href="/instructions">Instructions</a></li>
-                        <li><a href="/dashboard">Dashboard</a></li>
-                        <li><a href="/manage-links">Manage Links</a></li>
-                        <li><a href="/manage-lists">Manage Lists</a></li>
+                        <li><a id="nav-dash" href="/dashboard">Dashboard</a></li>
+                        <li><a id="nav-links" href="/manage-links">Manage Links</a></li>
+                        <li><a id="nav-lists" href="/manage-lists">Manage Lists</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Facebook Login  -->
@@ -68,22 +68,32 @@
         </nav>
         <!-- close navbar -->
         <!-- NAVBAR END -->
-        <!-- USER DATA AREA START -->
-        <div class="row">
-            <h1>DASHBOARD</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <img src="/images/logo.png" class="img-responsive img-thumbnail">
+                </div>
+                <div class="col-md-10">
+                    <h2 class="text-left">Dashboard</h2>
+                    <p>Add your sites below by entering a Site Name and your personal web address (URL).</p>
+                    <hr>
+                    <form id="manage-links-section">
+                        <input class="col-md-3" id="linkName" placeholder="Site Name" required>
+                        <input class="col-md-7" id="linkUrl" placeholder="www.facebook.com/username" required>
+                        <input class="col-md-2" type="submit" value="Create Link">
+                    </form>
+                    <br>
+                    <hr>
+                    <ul id="manage-links-list"></ul>
+                </div>
+            </div>
         </div>
-        <!-- USER DATA AREA END -->
-        <!-- FOOTER START -->
-        <footer class="container-fluid">
-            <p class="text-center"><small><a href="/">Home</a> | <a href="/instructions">Instructions</a> | <a href="/dashboard">Dashboard</a> | <a href="/manage-links">Manage Links</a> | <a href="/manage-lists">Manage Lists</a> | <a href="/about">About</a></small></p>
-            <p class="text-center"><small>Copyright &copy; Joe-Fan Interactive Media. All rights reserved.</small></p>
-            <br>
-        </footer>
-        <!-- FOOTER END -->
+        <!-- footer template found in footer.html -->
+        <div class="footer-template"></div>
 
     </div>
     <!-- Custom JS -->
-    <script src="/js/main.js"></script>
+    <script src="/js/manage-links.js"></script>
 </body>
 
 </html>
