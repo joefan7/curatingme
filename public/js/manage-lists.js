@@ -169,7 +169,7 @@ $(document).on('click', '#build', function (evt) {
 
 // Build the Login Prompt
 function buildLoginPrompt() {
-    alert(`${gUserName}, you are now logged out.`);
+    alert(`You are now logged out.`);
     window.location.href = "https://www.curatingme.com";
     location.reload();
 }
