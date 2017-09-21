@@ -15,10 +15,25 @@ $(document).ready(function () {
             `);
         }
     };
-
-
-    // <li class="list-group-item list" id="${linkList[i]._id}" value="${linkList[i]._id}">${linkList[i].linkName} - ${linkList[i].linkUrl}</li>
-    // <button btn-link-number="${linkList[i]._id}" class="testButton">Test</button>
+    var renderLists = function () {
+        // clear out lists-list and lists-list-links
+        $('#list-lists').empty();
+        $('#list-lists-lionks').empty();
+        for (var i = 0; i < linkList.length; i++) {
+            $('#lists-list').append
+                (`
+                <li id="${listList[i]._id}" class="list">
+                <button btn-list-number="${listList[i]._id}" class="listButton">Delete</button>
+                ${listList[i]['listName']}
+                </li>
+                `);
+            for (var index in listList[i][listObjIds]){
+                $.get('/link', {_id: listList[i][listObjIds]}, function (dataFromServer){
+                    console.log("dataFromServer", dataFromServer); // apend next
+                });
+            }
+        }
+    };
 
     var getFreshData = function () {
         // get list of links for check box group
@@ -26,13 +41,10 @@ $(document).ready(function () {
             linkList = linkData;
             renderLinks();
         });
-        // clear out lists-list and lists-list-links
-        $('#list-lists').empty();
-        $('#list-lists-lionks').empty();
         // get list of lists and lookup links from link collection
         $.get('/listList', function (listData){
             listList = listData;
-            console.log("listList: ", listList);
+            renderLists();
         });
     };
 
