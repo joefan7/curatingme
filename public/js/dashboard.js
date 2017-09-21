@@ -20,8 +20,8 @@ $(document).ready(function () {
             $('#lists-section').append
                 (`
                 <li>
-                <h4>${listList[i]['listName']}</h4>
-                <p>${listList[i]['listLinks']}</p>
+                <p>${listList[i]['listName']}
+                ${listList[i]['listLinks']}</p>
                 </li>
                 `);
         }
