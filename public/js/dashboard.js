@@ -14,16 +14,12 @@ $(document).ready(function () {
         }
     };
     var renderLists = function () {
-        console.log("listList: ", listList);
         // clear out lists-list and lists-list-links
-        $('#lists-list').empty();
-        $('#lists-list-links').empty();
-        $('input:checkbox').removeAttr('checked');    
+        $('#lists-section').empty();
         for (var i = 0; i < listList.length; i++) {
-            $('#lists-list').append
+            $('#lists-section').append
                 (`
-                <li id="${listList[i]._id}" class="list">
-                <button btn-list-number="${listList[i]._id}" class="listButton">Delete List</button>
+                <li>
                 ${listList[i]['listName']}
                 <br>
                 ${listList[i]['listLinks']} <p>   </p>
