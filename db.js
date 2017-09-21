@@ -39,6 +39,7 @@ var userListsSchema = mongoose.Schema({
     },
     listObjIds: {
         type: Array,
+        required: true,
     }
 });
 
