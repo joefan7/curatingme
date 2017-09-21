@@ -7,10 +7,8 @@ $(document).ready(function () {
         for (var i = 0; i < linkList.length; i++) {
             $('#links-section').append
                 (`
-                <div class="checkbox">
-                    <label>
-                        <input>${linkList[i].linkName} - <a href="${linkList[i].linkUrl}">${linkList[i].linkUrl}</a>
-                    </label>
+                <div>
+                    <p>${linkList[i].linkName} - <a href="${linkList[i].linkUrl}">${linkList[i].linkUrl}</a></p>
                 </div>
             `);
         }
