@@ -3,7 +3,7 @@ $(document).ready(function () {
     console.log("Local Storage _id:", localStorage._id);
 
     var renderLinks = function () {
-        $('#links-list').empty();
+        $('#links-section').empty();
         for (var i = 0; i < linkList.length; i++) {
             $('#links-list').append
                 (`
