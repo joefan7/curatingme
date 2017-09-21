@@ -20,6 +20,7 @@ $(document).ready(function () {
         // clear out lists-list and lists-list-links
         $('#list-lists').empty();
         $('#list-lists-links').empty();
+        $('input:checkbox').removeAttr('checked');    
         for (var i = 0; i < listList.length; i++) {
             $('#lists-list').append
                 (`
@@ -28,6 +29,7 @@ $(document).ready(function () {
                 ${listList[i]['listName']}
                 <br>
                 ${listList[i]['listLinks']}
+                <br>
                 </li>
                 `);
         }
