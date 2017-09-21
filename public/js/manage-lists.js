@@ -21,7 +21,10 @@ $(document).ready(function () {
         $('input[type=checkbox]:checked').each(function () {
             arr.push($(this).val());
         });
-        console.log("Checked items", arr)
+        console.log("Checked items array", arr);
+        console.log("objId of user", localStorage._id);
+        console.log("List name", $('#listName').val());
+
     });
 
     // <li class="list-group-item list" id="${linkList[i]._id}" value="${linkList[i]._id}">${linkList[i].linkName} - ${linkList[i].linkUrl}</li>
@@ -61,7 +64,6 @@ $(document).ready(function () {
             linkName: $('#listName').val(),
             linkUrl: $('#listObjIds').val()
         });
-        document.getElementById('listObjIds').value = '';
         document.getElementById('listName').value = '';
         getFreshData();
     });
