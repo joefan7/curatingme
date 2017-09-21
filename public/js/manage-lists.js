@@ -16,35 +16,36 @@ $(document).ready(function () {
         }
     };
 
-    $('form').submit(function () {
-        var arr = [];
-        $('input[type=checkbox]:checked').each(function () {
-            arr.push($(this).val());
-        });
-        console.log("Checked items array", arr);
-        console.log("objId of user", localStorage._id);
-        console.log("List name", $('#listName').val());
-
-    });
-
+    
     // <li class="list-group-item list" id="${linkList[i]._id}" value="${linkList[i]._id}">${linkList[i].linkName} - ${linkList[i].linkUrl}</li>
     // <button btn-link-number="${linkList[i]._id}" class="testButton">Test</button>
-
+    
     var getFreshData = function () {
         $.get('/list/linkList', function (linkData) {
             linkList = linkData;
             renderLinks();
         });
     };
-
+    
     // collapse nav bar when selection made
     $('.navbar-nav>li>a').on('click', function () {
         $('.navbar-collapse').collapse('hide');
     });
-
+    
     var linkList = [];
     var listList = [];
+    var checkedArr = [];
     getFreshData();
+    
+    $('form').submit(function () {
+        $('input[type=checkbox]:checked').each(function () {
+            checkedArr.push($(this).val());
+        });
+        console.log("Checked items array", checkedArr);
+        console.log("objId of user", localStorage._id);
+        console.log("List name", $('#listName').val());
+
+    });
 
     $('body').on('click', '.listButton', function (event) {
         event.stopPropagation();
