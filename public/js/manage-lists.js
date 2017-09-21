@@ -25,10 +25,10 @@ $(document).ready(function () {
             $('#lists-list').append
                 (`
                 <li id="${listList[i]._id}" class="list">
-                <button btn-list-number="${listList[i]._id}" class="listButton">Delete</button>
+                <button btn-list-number="${listList[i]._id}" class="listButton">Delete List</button>
                 ${listList[i]['listName']}
                 <br>
-                ${listList[i]['listLinks']} 
+                <p>   </p>${listList[i]['listLinks']} 
                 </li>
                 `);
         }
