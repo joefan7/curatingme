@@ -20,7 +20,7 @@ $(document).ready(function () {
         // clear out lists-list and lists-list-links
         $('#list-lists').empty();
         $('#list-lists-lionks').empty();
-        for (var i = 0; i < linkList.length; i++) {
+        for (var i = 0; i < listList.length; i++) {
             $('#lists-list').append
                 (`
                 <li id="${listList[i]._id}" class="list">
