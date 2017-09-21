@@ -216,14 +216,12 @@ function checkLoginState() {
 // Toggle visibility of screen elements if logged in
 function setElements(isLoggedIn) {
     if (isLoggedIn) {
-        document.getElementById('manage-lists-section').style.display = 'block';
         document.getElementById('nav-dash').style.display = 'block';
         document.getElementById('nav-links').style.display = 'block';
         document.getElementById('nav-lists').style.display = 'block';
         document.getElementById('logout').style.display = 'block';
         document.getElementById('fb-btn').style.display = 'none';
     } else {
-        document.getElementById('manage-lists-section').style.display = 'none';
         document.getElementById('nav-dash').style.display = 'none';
         document.getElementById('nav-links').style.display = 'none';
         document.getElementById('nav-lists').style.display = 'none';
