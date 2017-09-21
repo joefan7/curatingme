@@ -93,7 +93,8 @@ app.get('/list/linkList', function(req, res, next){
 
 // get individual links from UserLinksModel objId -> _Id
 app.get('/link', function(req, res, next){
-    db.UserLinksModel.find({_id: mongoose.Types.ObjectId(req.body)}, function(err, linkData){
+    console.log("REQ.BODY:", req.body);
+    db.UserLinksModel.find({_id: req.body}, function(err, linkData){
         if ( err ) { next(err);}
         else {
             res.send(linkData); 
