@@ -21,7 +21,6 @@ $(document).ready(function () {
                 (`
                 <li>
                 <h4>${listList[i]['listName']}</h4>
-                <br>
                 <p>${listList[i]['listLinks']}</p>
                 </li>
                 `);
