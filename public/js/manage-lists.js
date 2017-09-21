@@ -31,8 +31,8 @@ $(document).ready(function () {
         $('#list-lists-lionks').empty();
         // get list of lists and lookup links from link collection
         $.get('/listList', function (listData){
-            console.log ("listData:", listData);
-            console.log ("listData.listName", listData[0].listName);
+            listList = listData;
+            console.log("listList: ", listList);
         });
     };
 
