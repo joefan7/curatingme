@@ -19,7 +19,7 @@ $(document).ready(function () {
         console.log("listList: ", listList);
         // clear out lists-list and lists-list-links
         $('#list-lists').empty();
-        $('#list-lists-lionks').empty();
+        $('#list-lists-links').empty();
         for (var i = 0; i < listList.length; i++) {
             $('#lists-list').append
                 (`
@@ -28,8 +28,8 @@ $(document).ready(function () {
                 ${listList[i]['listName']}
                 </li>
                 `);
-            for (var index in listList[i]['objId']){
-                $.get('/link', {_id: listList[i][objId]}, function (linkData){
+            for (var index in listList[i]['listObjIds']){
+                $.get('/link', {_id: listList[i]['listObjIds']}, function (linkData){
                     console.log("dataFromServer", linkData); // apend next
                 });
             }
