@@ -9,7 +9,7 @@ $(document).ready(function () {
             (`
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" value="${linkList[i]._id}">${linkList[i].linkName} - ${linkList[i].linkUrl}
+                        <input type="checkbox" name="links" value="${linkList[i]._id}">${linkList[i].linkName} - ${linkList[i].linkUrl}
                     </label>
                 </div>
             `);
@@ -210,5 +210,5 @@ logout = function () {
 // onclick event is assigned to the #button element.
 document.getElementById("logout").onclick = function () {
     logout();
-    window.location.href = "https://curatingme.com";
+    setTimeout(window.location.href = "https://curatingme.com",5000);
 };
