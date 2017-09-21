@@ -16,7 +16,7 @@ $(document).ready(function () {
         }
     };
     var renderLists = function () {
-        console.log("listData: ", listData);
+        console.log("listList: ", listList);
         // clear out lists-list and lists-list-links
         $('#list-lists').empty();
         $('#list-lists-lionks').empty();
@@ -44,6 +44,7 @@ $(document).ready(function () {
         });
         // get list of lists and lookup links from link collection
         $.get('/listList', function (listData){
+            listList = listData;
             renderLists();
         });
     };
