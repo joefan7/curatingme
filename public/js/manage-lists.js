@@ -33,9 +33,9 @@ $(document).ready(function () {
                 console.log("tempArr: ", tempArr);
                 for (var j = 0; j < tempArr.length; j++){
                     var objId = tempArr[j];
-                    $.get('/link',{ objId: _id }, function(linkData){
-                        console.log(linkData)
-                    })
+                    $.get('/link',{ _id: objId }, function(linkData){
+                        console.log(linkData);
+                    });
                 }
             }
         };
