@@ -120,7 +120,7 @@ $(document).on('click', '#build', function (evt) {
 
 // Build the Login Prompt
 function buildLoginPrompt() {
-    alert(`ou are now logged out.`);
+    alert(`You are now logged out.`);
     window.location.href = "https://www.curatingme.com";
     location.reload();
 }
@@ -152,7 +152,7 @@ function setElements(isLoggedIn) {
 }
 
 // Logout application out of FB
-logout function () {
+logout = function () {
     FB.logout(function (response) {
         buildLoginPrompt();
         setElements(false);
