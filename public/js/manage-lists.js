@@ -6,16 +6,24 @@ $(document).ready(function () {
         $('#links-list').empty();
         for (var i = 0; i < linkList.length; i++) {
             $('#links-list').append
-            (`
+                (`
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" name="links" value="${linkList[i]._id}">${linkList[i].linkName} - ${linkList[i].linkUrl}
+                        <input type="checkbox" name="links[]" value="${linkList[i]._id}">${linkList[i].linkName} - ${linkList[i].linkUrl}
                     </label>
                 </div>
             `);
-            console.log("Link ObjectId", `${linkList[i]._id}`)
         }
     };
+
+    $('form').submit(function () {
+        var arr = [];
+        $('input:checked[name=links[]]').each(function () {
+            arr.push($(this).val());
+        });
+        console.log("Checked items", arr)
+    });
+
     // <li class="list-group-item list" id="${linkList[i]._id}" value="${linkList[i]._id}">${linkList[i].linkName} - ${linkList[i].linkUrl}</li>
     // <button btn-link-number="${linkList[i]._id}" class="testButton">Test</button>
 
@@ -25,7 +33,7 @@ $(document).ready(function () {
             renderLinks();
         });
     };
-    
+
     // collapse nav bar when selection made
     $('.navbar-nav>li>a').on('click', function () {
         $('.navbar-collapse').collapse('hide');
@@ -204,7 +212,7 @@ logout = function () {
     FB.logout(function (response) {
         buildLoginPrompt();
         setElements(false);
-        setTimeout(window.location.href = "https://curatingme.com",5000);
+        setTimeout(window.location.href = "https://curatingme.com", 5000);
     });
 }
 
