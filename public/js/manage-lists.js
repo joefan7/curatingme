@@ -21,10 +21,15 @@ $(document).ready(function () {
     // <button btn-link-number="${linkList[i]._id}" class="testButton">Test</button>
 
     var getFreshData = function () {
+        // get list of links for check box group
         $.get('/list/linkList', function (linkData) {
             linkList = linkData;
             renderLinks();
         });
+        // get list of lists and lookup links from link collection
+        $.get('/listList', function (listData){
+            console.log ("LIST DATA", listData)
+        })
     };
 
     // collapse nav bar when selection made
@@ -36,19 +41,6 @@ $(document).ready(function () {
     var listList = [];
     var checkedArr = [];
     getFreshData();
-
-    // $('form').submit(function () {
-    //     $('input[type=checkbox]:checked').each(function () {
-    //         checkedArr.push($(this).val());
-    //     });
-    //     if (checkedArr.length === 0){
-    //         alert("You must check at least one link.")
-    //     } else {
-    //     console.log("Checked items array", checkedArr);
-    //     console.log("objId of user", localStorage._id);
-    //     console.log("List name", $('#listName').val());
-    //     }
-    // });
 
     $('body').on('click', '.listButton', function (event) {
         event.stopPropagation();

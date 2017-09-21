@@ -91,6 +91,27 @@ app.get('/list/linkList', function(req, res, next){
     });
 });
 
+// get individual links from UserLinksModel objId -> _Id
+app.get('/link', function(req, res, next){
+    db.UserLinksModel.find({_id: req.body}, function(err, linkData){
+        if ( err ) { next(err);}
+        else {
+            res.send(linkData); 
+        }
+    });
+});
+
+// get lists from UserListsModel
+app.get('/listList', function(req, res, next){
+    db.UserListsModel.find({}, function(err, listData){
+        if ( err ) { next(err);}
+        else {
+            res.send(listData);
+        }
+    })
+})
+
+// insert new list
 app.post('/listList', function(req, res, next){   
     var newListList = new db.UserListsModel(req.body);
     console.log("linkList Post req.body",req.body);
