@@ -91,6 +91,17 @@ app.get('/list/linkList', function(req, res, next){
     });
 });
 
+app.post('/listList', function(req, res, next){   
+    var newListList = new db.UserListsModel(req.body);
+    console.log("linkList Post req.body",req.body);
+    newListList.save(function(err){ 
+        if (err){ next(err);}
+        else {
+            res.send({success:'success!'});
+        }
+    });
+});
+
 
 // Client routes
 // home page routes

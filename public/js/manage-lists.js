@@ -37,18 +37,18 @@ $(document).ready(function () {
     var checkedArr = [];
     getFreshData();
     
-    $('form').submit(function () {
-        $('input[type=checkbox]:checked').each(function () {
-            checkedArr.push($(this).val());
-        });
-        if (checkedArr.length === 0){
-            alert("You must check at least one link.")
-        } else {
-        console.log("Checked items array", checkedArr);
-        console.log("objId of user", localStorage._id);
-        console.log("List name", $('#listName').val());
-        }
-    });
+    // $('form').submit(function () {
+    //     $('input[type=checkbox]:checked').each(function () {
+    //         checkedArr.push($(this).val());
+    //     });
+    //     if (checkedArr.length === 0){
+    //         alert("You must check at least one link.")
+    //     } else {
+    //     console.log("Checked items array", checkedArr);
+    //     console.log("objId of user", localStorage._id);
+    //     console.log("List name", $('#listName').val());
+    //     }
+    // });
 
     $('body').on('click', '.listButton', function (event) {
         event.stopPropagation();
@@ -63,10 +63,19 @@ $(document).ready(function () {
 
     $('#manage-lists-section').on('submit', function (event) {
         event.preventDefault();
+        $('input[type=checkbox]:checked').each(function () {
+            checkedArr.push($(this).val());
+        });
+        if (checkedArr.length === 0){
+            alert("You must check at least one link.")
+        } else {
+        console.log("Checked items array", checkedArr);
+        console.log("objId of user", localStorage._id);
+        console.log("List name", $('#listName').val());
         $.post('/listList', {
             objId: localStorage._id,
-            linkName: $('#listName').val(),
-            linkUrl: $('#listObjIds').val()
+            listName: $('#listName').val(),
+            listObjIds: checkedArr
         });
         document.getElementById('listName').value = '';
         getFreshData();
