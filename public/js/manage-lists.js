@@ -28,9 +28,10 @@ $(document).ready(function () {
                 ${listList[i]['listName']}
                 </li>
                 `);
-            for (var index in listList[i]['listObjIds']){
-                $.get('/link', {_id: listList[i]['listObjIds']}, function (linkData){
-                    console.log("dataFromServer", linkData); // apend next
+             console.log("INDEX: ",listList[i]['listObjIds']);   
+            // for (var index in listList[i]['listObjIds']){
+            //     $.get('/link', {_id: listList[i]['listObjIds']}, function (linkData){
+            //         console.log("dataFromServer", linkData); // apend next
                 });
             }
         }
