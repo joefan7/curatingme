@@ -19,6 +19,7 @@ $(document).ready(function () {
         // clear out lists-list and lists-list-links
         $('#list-lists').empty();
         $('#list-lists-lionks').empty();
+        console.log("listList arr: ");
         for (var i = 0; i < linkList.length; i++) {
             $('#lists-list').append
                 (`
