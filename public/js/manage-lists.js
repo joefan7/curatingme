@@ -31,10 +31,12 @@ $(document).ready(function () {
                 console.log("INDEX: ", listList[i].listObjIds);
                 var tempArr = listList[i].listObjIds.split(',');
                 console.log("tempArr: ", tempArr);
-                // for(var index in listList[i].listObjIds){
-                //     // console.log("listObjIds: ", listList[i].listObjIds);
-                //     console.log("index", index);
-                // }
+                for (var j = 0; j < tempArr.length; j++){
+                    var objId = tempArr[j];
+                    $.get('/link',{ objId: _id }, function(linkData){
+                        console.log(linkData)
+                    })
+                }
             }
         };
         
