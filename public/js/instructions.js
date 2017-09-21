@@ -120,7 +120,8 @@ $(document).on('click', '#build', function (evt) {
 
 // Build the Login Prompt
 function buildLoginPrompt() {
-    alert(`${gUserName}, you are now logged out.`);
+    alert(`ou are now logged out.`);
+    window.location.href = "https://www.curatingme.com";
     location.reload();
 }
 
@@ -151,9 +152,15 @@ function setElements(isLoggedIn) {
 }
 
 // Logout application out of FB
-function logout() {
+logout function () {
     FB.logout(function (response) {
         buildLoginPrompt();
         setElements(false);
+        setTimeout(window.location.href = "https://curatingme.com",5000);
     });
 }
+
+// onclick event is assigned to the #button element.
+document.getElementById("logout").onclick = function () {
+    logout();
+};
