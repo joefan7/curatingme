@@ -38,20 +38,16 @@ $(document).ready(function () {
     getFreshData();
     
     $('form').submit(function () {
-        $('#checkBtn').click(function() {
-            checked = $("input[type=checkbox]:checked").length;
-            if(!checked) {
-              alert("You must check at least one checkbox.");
-              return false;
-            }
-          });
         $('input[type=checkbox]:checked').each(function () {
             checkedArr.push($(this).val());
         });
+        if (checkedArr.length === 0){
+            alert("You must check at least one link.")
+        } else {
         console.log("Checked items array", checkedArr);
         console.log("objId of user", localStorage._id);
         console.log("List name", $('#listName').val());
-
+        }
     });
 
     $('body').on('click', '.listButton', function (event) {
