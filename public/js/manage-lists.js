@@ -28,6 +28,12 @@ $(document).ready(function () {
                 ${listList[i]['listName']}
                 </li>
                 `);
+            $('#lists-list-links').append
+                (`
+                <li class="list">
+                ${listList[i]['listLinks']}
+                </li>
+                `);
         }
     };
 
@@ -79,7 +85,7 @@ $(document).ready(function () {
             $.post('/listList', {
                 objId: localStorage._id,
                 listName: $('#listName').val(),
-                listObjIds: checkedArr.join()
+                listLinks: checkedArr.join()
             });
             document.getElementById('listName').value = '';
             getFreshData();
