@@ -26,9 +26,13 @@ $(document).ready(function () {
             linkList = linkData;
             renderLinks();
         });
+        // clear out lists-list and lists-list-links
+        $('#list-lists').empty();
+        $('#list-lists-lionks').empty();
         // get list of lists and lookup links from link collection
         $.get('/listList', function (listData){
-            console.log ("LIST DATA", listData)
+            console.log ("listData:", listData)
+            console.log ("listData.listName" listData.listName)
         })
     };
 
