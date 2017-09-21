@@ -8,7 +8,7 @@ $(document).ready(function () {
             $('#links-section').append
                 (`
                 <div>
-                    <h4>${linkList[i].linkName} - <a href="https://${linkList[i].linkUrl}" target="blank">https://${linkList[i].linkUrl}</a></h4>
+                    <p>${linkList[i].linkName} - <a href="https://${linkList[i].linkUrl}" target="blank">https://${linkList[i].linkUrl}</a></p>
                 </div>
             `);
         }
